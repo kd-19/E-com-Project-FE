@@ -1,1 +1,51 @@
 /* You can add global styles to this file, and also import other style files */
+
+body{
+    font-family: sans-serif;
+    background-color: azure;
+}
+
+.container{
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.common-form{
+    text-align: center;
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    width: 600px;
+    justify-content: center;
+}
+
+.common-input{
+    padding-left: 10px;
+    height: 45px;
+    margin-bottom: 20px;
+    border: 2px solid rgb(139, 53, 16);
+    color: rgb(20, 97, 108);
+    border-radius: 20px;
+}
+
+.common-button{
+    margin-top: 30px;
+    height: 50px;
+    border: 2px solid rgb(139, 53, 16);
+    cursor: pointer;
+    font-size: 25px;
+    width: 200px;
+    border-radius: 50px;
+    position: relative;
+    left: 35%;
+}
+
+.error-m{
+    color: red;
+}
+
+.message-p{
+    color: green;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

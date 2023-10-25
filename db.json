@@ -1,0 +1,166 @@
+{
+  "seller": [
+    {
+      "name": "Kuldeep Sharma",
+      "email": "kuldeep@seller.com",
+      "password": "admin@123",
+      "id": 1
+    },
+    {
+      "name": "KD",
+      "password": "admin@123",
+      "email": "kd@seller.com",
+      "id": 2
+    },
+    {
+      "name": "RJ",
+      "password": "admin@123",
+      "email": "RJ@seller.com",
+      "id": 3
+    },
+    {
+      "name": "RP",
+      "password": "admin@123",
+      "email": "RP@seller.com",
+      "id": 4
+    },
+    {
+      "name": "DK",
+      "password": "admin@123",
+      "email": "dk@seller.com",
+      "id": 5
+    },
+    {
+      "name": "Ajay",
+      "password": "admin@123",
+      "email": "ajay@seller.com",
+      "id": 6
+    },
+    {
+      "name": "Raj",
+      "password": "admin@123",
+      "email": "raj@seller.com",
+      "id": 7
+    },
+    {
+      "name": "local",
+      "password": "admin@123",
+      "email": "local@seller.com",
+      "id": 8
+    },
+    {
+      "name": "AK",
+      "email": "ak@seller.com",
+      "password": "admin@123",
+      "id": 10
+    },
+    {
+      "name": "sam",
+      "email": "sam@seller.com",
+      "password": "admin@123",
+      "id": 11
+    },
+    {
+      "name": "Amit",
+      "email": "amit@seller.com",
+      "password": "admin@123",
+      "id": 12
+    },
+    {
+      "name": "KD",
+      "email": "kd@seller.com",
+      "password": "admin@123",
+      "id": 13
+    },
+    {
+      "name": "MSD",
+      "email": "msd@seller.com",
+      "password": "admin@123",
+      "id": 14
+    },
+    {
+      "name": "",
+      "email": "",
+      "password": "",
+      "id": 15
+    },
+    {
+      "name": "",
+      "email": "",
+      "password": "",
+      "id": 16
+    },
+    {
+      "name": "",
+      "email": "",
+      "password": "",
+      "id": 17
+    },
+    {
+      "name": "",
+      "email": "",
+      "password": "",
+      "id": 18
+    },
+    {
+      "name": "",
+      "email": "",
+      "password": "",
+      "id": 19
+    },
+    {
+      "name": "Mohan",
+      "email": "mohan@seller.com",
+      "password": "admin@123",
+      "id": 20
+    }
+  ],
+  "products": [
+    {
+      "name": "iPhone14",
+      "price": "100000",
+      "color": "Black",
+      "category": "Mobile",
+      "description": "Latest iPhone from Apple",
+      "image": "https://images.unsplash.com/photo-1677563277026-17a254ea02f7?auto=format&fit=crop&q=80&w=1964&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "id": 1
+    },
+    {
+      "name": "Vivo v29",
+      "price": "35000",
+      "color": "Himalayan Blue",
+      "category": "Mobile",
+      "description": "Latest product by VIVO",
+      "image": "https://rukminim2.flixcart.com/image/416/416/xif0q/mobile/5/e/x/v29-5g-v2250-vivo-original-imagtyqfjag4qbdw.jpeg?q=70",
+      "id": 2
+    },
+    {
+      "name": "LG Washing Machine",
+      "price": "25000",
+      "color": "Gery",
+      "category": "Electronics",
+      "description": "10L washing machine by LG",
+      "image": "https://www.reliancedigital.in/medias/Lg-FHP1410Z7P-Refrigerator-492911184-i-1-1200Wx1200H?context=bWFzdGVyfGltYWdlc3wxMTU0NTV8aW1hZ2UvanBlZ3xpbWFnZXMvaDFiL2hjYS85ODg5NTI4NzA5MTUwLmpwZ3w4ZWZmYWYxMmExYWJmYjg5YmVmY2IwMWU0ZDI1ZjBjZGVhNzkxMWFlMDZlMGE3YjRhODkzYjVkODIzMGFiN2U5",
+      "id": 3
+    },
+    {
+      "name": "Urban Terrain Cycle ",
+      "price": "7298",
+      "color": "White",
+      "category": "Sports/Fitness",
+      "description": "Bycycle by Urban Terrain ",
+      "image": "https://m.media-amazon.com/images/I/612VTVrc6XL._SX522_.jpg",
+      "id": 4
+    },
+    
+    {
+      "name": "HP Laptop",
+      "price": "60000",
+      "color": "Silver",
+      "category": "Electronics",
+      "description": "HP laptop with 16GB RAM",
+      "image": "https://in-media.apjonlinecdn.com/catalog/product/cache/b3b166914d87ce343d4dc5ec5117b502/7/N/7N4Z9AA-1_T1692666097.png",
+      "id": 5
+    }
+  ]
+}
