@@ -3,7 +3,13 @@
 body{
     font-family: sans-serif;
     background-color: azure;
+    background-image: url(./app/bg-image.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    
 }
+
 
 .container{
     margin-left: 5%;
@@ -48,4 +54,5 @@ body{
     color: green;
 }
 html, body { height: 100%; }
+
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

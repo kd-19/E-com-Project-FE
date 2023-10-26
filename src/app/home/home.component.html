@@ -1,1 +1,16 @@
-<h1>Home Page</h1>
+<div  class="carousel">
+<ngb-carousel  *ngIf="popularProducts">
+	<ng-template ngbSlide *ngFor="let item of popularProducts">
+		<div class="picsum-img-wrapper">
+			<img class="product-header-img" src="{{item.image}}" alt="Random first slide" />
+		</div>
+		<div class="carousel-caption">
+			<h3>{{item.name}}</h3>
+			<p>{{item.price | currency:"INR"}}</p>
+			<p>{{item.description}}</p>
+		</div>
+	</ng-template>
+	</ngb-carousel>
+
+
+</div>

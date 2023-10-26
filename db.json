@@ -113,6 +113,36 @@
       "email": "mohan@seller.com",
       "password": "admin@123",
       "id": 20
+    },
+    {
+      "name": "Rohan",
+      "email": "rohan@seller.com",
+      "password": "admin@123",
+      "id": 21
+    },
+    {
+      "name": "Mohan",
+      "email": "mohan@seller.com",
+      "password": "admin@123",
+      "id": 22
+    },
+    {
+      "name": "Ram",
+      "email": "ram@seller.com",
+      "password": "admin@123",
+      "id": 23
+    },
+    {
+      "name": "",
+      "email": "",
+      "password": "",
+      "id": 24
+    },
+    {
+      "name": "Shyam",
+      "email": "shyam@seller.com",
+      "password": "admin@123",
+      "id": 25
     }
   ],
   "products": [
@@ -145,22 +175,39 @@
     },
     {
       "name": "Urban Terrain Cycle ",
-      "price": "7298",
+      "price": "6969",
       "color": "White",
       "category": "Sports/Fitness",
       "description": "Bycycle by Urban Terrain ",
       "image": "https://m.media-amazon.com/images/I/612VTVrc6XL._SX522_.jpg",
       "id": 4
     },
-    
     {
       "name": "HP Laptop",
-      "price": "60000",
-      "color": "Silver",
+      "price": "70000",
+      "color": "grey",
       "category": "Electronics",
-      "description": "HP laptop with 16GB RAM",
-      "image": "https://in-media.apjonlinecdn.com/catalog/product/cache/b3b166914d87ce343d4dc5ec5117b502/7/N/7N4Z9AA-1_T1692666097.png",
+      "description": "HP Pavilion 14",
+      "image": "https://in-media.apjonlinecdn.com/catalog/product/cache/b3b166914d87ce343d4dc5ec5117b502/7/N/7N760PA-7_T1680486969.png",
       "id": 5
+    },
+    {
+      "name": "BAT",
+      "price": "3000",
+      "color": "Wooden White",
+      "category": "Sports",
+      "description": "CEAT Bat ",
+      "image": "https://rukminim2.flixcart.com/image/416/416/jvqzo280/bat/q/b/a/0-900-poplar-willow-cricket-bat-no-6-6-1-ceat-original-imafggjgczcwszky.jpeg?q=70",
+      "id": 6
+    },
+    {
+      "name": "Demo Product",
+      "price": "34567",
+      "color": "Grey",
+      "category": "demo",
+      "description": "demo",
+      "image": "www.demo.com",
+      "id": 7
     }
   ]
 }

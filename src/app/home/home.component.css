@@ -1,0 +1,18 @@
+.carousel{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 30px;
+}
+
+.product-header-img{
+    width: 400px;
+    height: auto;
+    margin-top: 50px;
+}
+
+.carousel-caption{
+    color:rgba(47, 44, 212, 0.714);
+    background-color: rgba(176, 175, 194, 0.6);
+    border-radius: 30px;
+}
