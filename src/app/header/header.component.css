@@ -55,3 +55,25 @@
     border-left: 0;
     height: 39px;
 }
+
+.suggested-result{
+    position:absolute;
+    display: list-item ;
+    z-index: 10;
+    top: 40px;
+    width: 200px;
+    border: 1px hidden #ddd;
+    flex-direction: column;
+    /* background-color: rgba(242, 248, 249, 0.5) */ 
+}
+
+.suggested-result li{
+    border: 1px hidden #ddd;
+    margin-top: 20px;
+}
+
+.suggested-result li a{
+    cursor: pointer;
+    color: black;
+    font-weight: 600;
+}

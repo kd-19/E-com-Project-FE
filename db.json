@@ -147,31 +147,40 @@
   ],
   "products": [
     {
-      "name": "iPhone14",
-      "price": "100000",
-      "color": "Black",
-      "category": "Mobile",
-      "description": "Latest iPhone from Apple",
-      "image": "https://images.unsplash.com/photo-1677563277026-17a254ea02f7?auto=format&fit=crop&q=80&w=1964&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "name": "LG Washing Machine",
+      "price": "25550",
+      "color": "Gery",
+      "category": "Electronics",
+      "description": "10L washing machine by LG",
+      "image": "https://s3b.cashify.in/gpro/uploads/2022/08/27231131/Best-LG-Washing-Machines-In-India.jpg",
       "id": 1
     },
     {
-      "name": "Vivo v29",
+      "name": "HP Laptop Z-Book 450",
+      "price": "70000",
+      "color": "Grey",
+      "category": "Electronics",
+      "description": "HP Pavilion 14",
+      "image": "https://images.hindustantimes.com/tech/img/2021/12/17/1600x900/DSC_1300_1639757802261_1639757843934.jpg",
+      "id": 2
+    },
+    {
+      "name": "Vivo V29e Pro Series",
       "price": "35000",
       "color": "Himalayan Blue",
       "category": "Mobile",
       "description": "Latest product by VIVO",
-      "image": "https://rukminim2.flixcart.com/image/416/416/xif0q/mobile/5/e/x/v29-5g-v2250-vivo-original-imagtyqfjag4qbdw.jpeg?q=70",
-      "id": 2
+      "image": "https://cdn.zeebiz.com/sites/default/files/2023/10/04/263413-vivov29series.jpg",
+      "id": 3
     },
     {
-      "name": "LG Washing Machine",
-      "price": "25000",
-      "color": "Gery",
-      "category": "Electronics",
-      "description": "10L washing machine by LG",
-      "image": "https://www.reliancedigital.in/medias/Lg-FHP1410Z7P-Refrigerator-492911184-i-1-1200Wx1200H?context=bWFzdGVyfGltYWdlc3wxMTU0NTV8aW1hZ2UvanBlZ3xpbWFnZXMvaDFiL2hjYS85ODg5NTI4NzA5MTUwLmpwZ3w4ZWZmYWYxMmExYWJmYjg5YmVmY2IwMWU0ZDI1ZjBjZGVhNzkxMWFlMDZlMGE3YjRhODkzYjVkODIzMGFiN2U5",
-      "id": 3
+      "name": "Apple iPhone14 Pro Max",
+      "price": "140000",
+      "color": "Black",
+      "category": "Mobile",
+      "description": "Latest iPhone from Apple",
+      "image": "https://forums.macrumors.com/attachments/20221010_172608617_ios-jpg.2099156/",
+      "id": 4
     },
     {
       "name": "Urban Terrain Cycle ",
@@ -180,34 +189,52 @@
       "category": "Sports/Fitness",
       "description": "Bycycle by Urban Terrain ",
       "image": "https://m.media-amazon.com/images/I/612VTVrc6XL._SX522_.jpg",
-      "id": 4
-    },
-    {
-      "name": "HP Laptop",
-      "price": "70000",
-      "color": "grey",
-      "category": "Electronics",
-      "description": "HP Pavilion 14",
-      "image": "https://in-media.apjonlinecdn.com/catalog/product/cache/b3b166914d87ce343d4dc5ec5117b502/7/N/7N760PA-7_T1680486969.png",
       "id": 5
     },
     {
-      "name": "BAT",
-      "price": "3000",
-      "color": "Wooden White",
+      "name": "FIRST White Men's Running Shoes",
+      "price": "3499",
+      "color": "White",
       "category": "Sports",
-      "description": "CEAT Bat ",
-      "image": "https://rukminim2.flixcart.com/image/416/416/jvqzo280/bat/q/b/a/0-900-poplar-willow-cricket-bat-no-6-6-1-ceat-original-imafggjgczcwszky.jpeg?q=70",
+      "description": "Stylish Sports shooes by FIRST ",
+      "image": "https://www.campusshoes.com/cdn/shop/products/FIRST_11G-787_WHT-SIL-B.ORG.jpg?v=1670326183&width=900",
       "id": 6
     },
     {
-      "name": "Demo Product",
-      "price": "34567",
-      "color": "Grey",
-      "category": "demo",
-      "description": "demo",
-      "image": "www.demo.com",
+      "name": "One Plus Smart LED TV ",
+      "price": "29999",
+      "color": "Glossy Black",
+      "category": "Electronics",
+      "description": "Smart tv by OnePlus in 42 inch",
+      "image": "https://img.etimg.com/thumb/width-1200,height-900,imgsize-127256,resizemode-75,msid-101614878/top-trending-products/electronics/tv-appliances/best-43-inch-tv-immersive-entertainment-at-its-best-for-ultimate-viewing-experience.jpg",
       "id": 7
+    },
+    {
+      "name": "SG Economy Cricket Kit",
+      "price": "12998",
+      "color": "White & Orange",
+      "category": "Sports",
+      "description": "An Complete kit from SG ",
+      "image": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSjbO-QkfHI9fM1QEzwSl1av7Kiqv0F6vpFoL4lYQ7gAKOyJAqcQF4IGYcbWz6YAP7TiTU0PNGmAtEUSV14rg8fIDESRN6IilzvhcAIRn3H2EIX5mmUrLwk9Q&usqp=CAE",
+      "id": 8
+    },
+    {
+      "name": "Maharaja Juicer/Mixture ",
+      "price": "5999",
+      "color": "Grey & Black",
+      "category": "Home Appliances ",
+      "description": "A combo of juicer & mixture ",
+      "image": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQ_fYBMXbQKTf6AJx02OOvSAwNoz7SK1n0rVlaZEO82IUYwz_oJdHWoNvg_lLmXUEYYnWtyTJE59qrBdtp6_JZ4mpEPsP13U3mQfEzyag0MeXL7lsAzI68f&usqp=CAE",
+      "id": 9
+    },
+    {
+      "name": "Electric Kids Mini-Cooper Car  ",
+      "price": "21955",
+      "color": "Pink",
+      "category": "Toys/Sports",
+      "description": "A battery operated car ",
+      "image": "https://5.imimg.com/data5/SELLER/Default/2021/10/JT/RD/MI/4370338/11-carat-children-kids-electric-ride-on-mini-cooper-car-with-projector.jpg",
+      "id": 10
     }
   ]
 }

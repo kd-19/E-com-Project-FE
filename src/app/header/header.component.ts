@@ -8,6 +8,8 @@ import { faKeyboard } from '@fortawesome/free-solid-svg-icons';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { faList } from '@fortawesome/free-solid-svg-icons';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { ProductService } from '../services/product.service';
+import { product } from '../data-type';
 
 
 @Component({
@@ -25,10 +27,11 @@ export class HeaderComponent implements OnInit{
   list=faList;
   search=faSearch;
   sellerName:string='';
+  searchResult:undefined | product[];
 
   
 
-  constructor(private route:Router){}
+  constructor(private route:Router, private product:ProductService){}
 
   ngOnInit():void{
     this.route.events.subscribe((val:any)=>{
@@ -42,7 +45,6 @@ export class HeaderComponent implements OnInit{
           }
         }
         else{
-          console.warn("outside seller area.");
           this.menuType="default";
         }
       }
@@ -52,6 +54,26 @@ export class HeaderComponent implements OnInit{
   logout(){
     localStorage.removeItem('seller');
     this.route.navigate(['/']);
+  }
+
+  searchProduct(query:KeyboardEvent){
+      if(query){
+        const element=query.target as HTMLInputElement;
+        this.product.searchProducts(element.value).subscribe((result)=>{
+          result.length=3;
+          this.searchResult=result;
+          
+        })
+
+      }
+  }
+
+  hideSearch(){
+    this.searchResult=undefined;
+  }
+
+  submitSearch(val:string){
+    this.route.navigate([`search/${val}`]);
   }
 
 }

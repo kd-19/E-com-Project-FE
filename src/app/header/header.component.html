@@ -4,8 +4,14 @@
         <a routerLink="/"><fa-icon [icon]="cart" style="color:chocolate;">  </fa-icon> E-MART.com</a> </h1>
 
     <div *ngIf="menuType==='default'" class="nav-search">
-        <input type="text" placeholder="Search for products">
-        <button> <fa-icon [icon]="search" ></fa-icon> Search</button>
+        <input type="text" #searchInput   (keyup)="searchProduct($event)" (blur)="hideSearch()" placeholder="Search for products">
+        <button (click)="submitSearch(searchInput.value)" > <fa-icon [icon]="search" ></fa-icon> Search</button>
+
+        <ul class="suggested-result" *ngIf="searchResult" >
+            <li *ngFor="let item of searchResult"> 
+                   <a href="">{{item.name}}</a>
+            </li>
+        </ul>
     </div>
 
     <div [ngSwitch]="menuType">
@@ -25,3 +31,4 @@
 
     </div>
 </nav>
+
