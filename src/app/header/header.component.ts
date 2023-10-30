@@ -28,6 +28,8 @@ export class HeaderComponent implements OnInit{
   search=faSearch;
   sellerName:string='';
   searchResult:undefined | product[];
+  userName:string='';
+  cartItems=0;
 
   
 
@@ -44,16 +46,38 @@ export class HeaderComponent implements OnInit{
             this.sellerName=sellerData.name;
           }
         }
+
+        else if(localStorage.getItem('user')){
+          this.menuType="user";
+          let userStore=localStorage.getItem('user');
+          let userData = userStore && JSON.parse(userStore);
+          this.userName=userData.name;
+        }
+
         else{
           this.menuType="default";
         }
       }
     });
+
+    let cartData=localStorage.getItem('localCart');
+    if(cartData){
+      this.cartItems=JSON.parse(cartData).length;
+    }
+
+    this.product.cartData.subscribe((item)=>{
+      this.cartItems=item.length;
+    })
   }
 
   logout(){
     localStorage.removeItem('seller');
     this.route.navigate(['/']);
+  }
+
+  userlogout(){
+    localStorage.removeItem('user');
+    this.route.navigate(['/user-auth']);
   }
 
   searchProduct(query:KeyboardEvent){

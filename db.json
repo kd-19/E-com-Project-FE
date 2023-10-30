@@ -149,6 +149,42 @@
       "email": "lalit@seller.com",
       "password": "admin@123",
       "id": 26
+    },
+    {
+      "name": "Harry",
+      "email": "harry@seller.com",
+      "password": "admin@123",
+      "id": 27
+    },
+    {
+      "name": "",
+      "email": "",
+      "password": "",
+      "id": 28
+    },
+    {
+      "name": "",
+      "email": "",
+      "password": "",
+      "id": 29
+    },
+    {
+      "name": "Tony",
+      "email": "tony@seller.com",
+      "password": "seller@123",
+      "id": 30
+    },
+    {
+      "name": "Ishan",
+      "email": "ishan@seller.com",
+      "password": "admin@123",
+      "id": 31
+    },
+    {
+      "name": "Jatin",
+      "email": "jatin@seller.com",
+      "password": "admin@123",
+      "id": 32
     }
   ],
   "products": [
@@ -261,6 +297,60 @@
       "email": "ram@user.com",
       "password": "user@123",
       "id": 3
+    },
+    {
+      "name": "Mohan",
+      "email": "mohan@user.com",
+      "password": "user@123",
+      "id": 4
+    },
+    {
+      "name": "Sam",
+      "email": "sam@user.com",
+      "password": "user@123",
+      "id": 5
+    },
+    {
+      "name": "Harry",
+      "email": "harry@user.com",
+      "password": "user@123",
+      "id": 6
+    },
+    {
+      "name": "Nikk",
+      "email": "nikk@user.com",
+      "password": "user@123",
+      "id": 7
+    },
+    {
+      "name": "Monty",
+      "email": "monty@user.com",
+      "password": "user@123",
+      "id": 8
+    },
+    {
+      "name": "KD",
+      "email": "kd@user.com",
+      "password": "user123",
+      "id": 9
+    },
+    {
+      "name": "Ram",
+      "email": "ram@user.com",
+      "password": "user@123",
+      "id": 10
+    },
+    {
+      "name": "Amit",
+      "email": "amit@user.com",
+      "password": "user@123",
+      "id": 11
+    },
+    {
+      "name": "Kuldeep",
+      "email": "kuldeep@user.com",
+      "password": "user2123",
+      "id": 12
     }
   ]
 }

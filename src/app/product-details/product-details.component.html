@@ -23,7 +23,8 @@
                 </div>
 
                 <div class="product-option">
-                    <button class="btn"><fa-icon [icon]="cart" ></fa-icon> Add to cart</button>
+                    <button *ngIf="!removeCart" class="btn" (click)="AddToCart()"><fa-icon [icon]="cart"  ></fa-icon> Add to cart</button>
+                    <button *ngIf="removeCart" class="btn" (click)="RemoveToCart(productData.id)"><fa-icon [icon]="cart"  ></fa-icon> Remove to cart</button>
                     <button class="btn"><fa-icon [icon]="bag" ></fa-icon> Buy Now</button>
                 </div>
                 

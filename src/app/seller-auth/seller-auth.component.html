@@ -1,4 +1,4 @@
-<div class="seller-auth">
+<!-- <div class="seller-auth">
     <div *ngIf="!showLogin" class="signup">
         <h1>Seller Sign-Up</h1>
         <form #sellerSignUp="ngForm" class="common-form" (ngSubmit)="signUp(sellerSignUp.value)">
@@ -10,20 +10,67 @@
             <a class="auth-toggle-link" (click)="openLogin()">Already have account ? Click to Login </a>
         </form>
     </div>
-</div>
+</div> -->
+
+<div class="seller-auth">
+    <div *ngIf="!showLogin" class="signup">
+      <h1>Seller Sign-Up</h1>
+      <form [formGroup]="sellerSignUp" class="common-form" (ngSubmit)="signUp(sellerSignUp.value)">
+        <input class="common-input" formControlName="name" placeholder="Enter Your Name">
+        <div *ngIf="sellerSignUp.get('name')?.hasError('required') && sellerSignUp.get('name')?.touched" class="error-message">
+          Name is required.
+        </div>
+        
+        <input class="common-input" formControlName="email" placeholder="Enter Your Email">
+        <div *ngIf="sellerSignUp.get('email')?.hasError('required') && sellerSignUp.get('email')?.touched" class="error-message">
+          Email is required.
+        </div>
+        <div *ngIf="sellerSignUp.get('email')?.hasError('email') && sellerSignUp.get('email')?.touched" class="error-message">
+          Please enter a valid email address.
+        </div>
+        
+        <input class="common-input" formControlName="password" type="password" placeholder="Enter Your Password">
+        <div *ngIf="sellerSignUp.get('password')?.hasError('required') && sellerSignUp.get('password')?.touched" class="error-message">
+          Password is required.
+        </div>
+        <div *ngIf="sellerSignUp.get('password')?.hasError('minlength') && sellerSignUp.get('password')?.touched" class="error-message">
+          Password must be at least 6 characters long.
+        </div>
+        
+        <button class="common-button" type="submit">Sign-Up</button>
+        <a class="auth-toggle-link" (click)="openLogin()">Already have an account? Click to Login</a>
+      </form>
+    </div>
+  </div>
+  
 
 
 <!-- Login Page -->
+
 <div class="seller-auth">
-<div *ngIf="showLogin" class="login">
-    <h1>Seller Login</h1>
-    <p class="error-m">{{authError}}</p>
-    <form #sellerLogin="ngForm" class="common-form" (ngSubmit)="Login(sellerLogin.value)">
-        <input class="common-input" name="email" ngModel type="text" placeholder="Enter Your Email">
-        <input class="common-input" ngModel name="password" type="password" placeholder="Enter Your Password" >
+    <div class="login">
+      <h1>Seller Login</h1>
+      <p class="error-m">{{authError}}</p>
+      <form [formGroup]="sellerLogin" class="common-form" (ngSubmit)="Login(sellerLogin.value)">
+        <input class="common-input" formControlName="email" placeholder="Enter Your Email">
+        <div *ngIf="sellerLogin.get('email')?.hasError('required') && sellerLogin.get('email')?.touched" class="error-message">
+          Email is required.
+        </div>
+        <div *ngIf="sellerLogin.get('email')?.hasError('email') && sellerLogin.get('email')?.touched" class="error-message">
+          Please enter a valid email address.
+        </div>
         
-        <button class="common-button">Login</button>
-        <a class="auth-toggle-link" (click)="openSignup()" >Don't have account ? Click to SignUp </a>
-    </form>
-</div>
-</div>
+        <input class="common-input" formControlName="password" type="password" placeholder="Enter Your Password">
+        <div *ngIf="sellerLogin.get('password')?.hasError('required') && sellerLogin.get('password')?.touched" class="error-message">
+          Password is required.
+        </div>
+        <div *ngIf="sellerLogin.get('password')?.hasError('minlength') && sellerLogin.get('password')?.touched" class="error-message">
+          Password must be at least 6 characters long.
+        </div>
+        
+        <button class="common-button" type="submit">Login</button>
+        <a class="auth-toggle-link" (click)="openSignup()">Don't have an account? Click to Sign Up</a>
+      </form>
+    </div>
+  </div>
+  
