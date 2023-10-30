@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { faKeyboard } from '@fortawesome/free-solid-svg-icons';
@@ -19,7 +19,7 @@ import { product } from '../data-type';
 })
 export class HeaderComponent implements OnInit{
   menuType:string='default';
-  cart=faCartShopping;
+  cart=faCartPlus;
   home=faHome;
   person=faUser;
   keyboard=faKeyboard;
@@ -69,12 +69,16 @@ export class HeaderComponent implements OnInit{
   }
 
   hideSearch(){
-    this.searchResult=undefined;
+    this.searchResult=[];
   }
 
   submitSearch(val:string){
-    this.route.navigate([`search/${val}`]);
+    this.route.navigate([`search/${val}`]);  
   }
 
+  redirectToDetails(id:number){
+    this.route.navigate(['/details/'+id]);
+  }
+   
 }
   

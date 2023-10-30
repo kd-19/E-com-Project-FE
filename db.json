@@ -143,6 +143,12 @@
       "email": "shyam@seller.com",
       "password": "admin@123",
       "id": 25
+    },
+    {
+      "name": "Lalit",
+      "email": "lalit@seller.com",
+      "password": "admin@123",
+      "id": 26
     }
   ],
   "products": [
@@ -235,6 +241,26 @@
       "description": "A battery operated car ",
       "image": "https://5.imimg.com/data5/SELLER/Default/2021/10/JT/RD/MI/4370338/11-carat-children-kids-electric-ride-on-mini-cooper-car-with-projector.jpg",
       "id": 10
+    }
+  ],
+  "users": [
+    {
+      "name": "KD",
+      "email": "kd@user.com",
+      "password": "user@123",
+      "id": 1
+    },
+    {
+      "name": "RP",
+      "email": "rp@user.com",
+      "password": "user@123",
+      "id": 2
+    },
+    {
+      "name": "Ram",
+      "email": "ram@user.com",
+      "password": "user@123",
+      "id": 3
     }
   ]
 }

@@ -9,7 +9,7 @@
 
         <ul class="suggested-result" *ngIf="searchResult" >
             <li *ngFor="let item of searchResult"> 
-                   <a href="">{{item.name}}</a>
+                   <a (mousedown)="redirectToDetails(item.id)">{{item.name}}</a>
             </li>
         </ul>
     </div>
@@ -18,12 +18,12 @@
     <ul *ngSwitchCase="'default'">
         <li><a routerLink="/"> <fa-icon [icon]="home" ></fa-icon> Home</a></li>
         <li><a routerLink="/seller"> <fa-icon [icon]="person" ></fa-icon> Seller</a></li>
-        <li><a href="#"><fa-icon [icon]="keyboard" ></fa-icon>  Login</a></li>
+        <li><a routerLink="user-auth"><fa-icon [icon]="keyboard" ></fa-icon>  Login/Sign-up</a></li>
         <li><a href="#"><fa-icon [icon]="cart" ></fa-icon> Cart(0)</a></li>
     </ul>
 
     <ul *ngSwitchCase="'seller'">
-        <li><a routerLink="/seller-add-product"> (<fa-icon [icon]="plus" ></fa-icon>) Add Product</a></li>
+        <li><a routerLink="/seller-add-product"> <fa-icon [icon]="plus" ></fa-icon> Add Product</a></li>
         <li><a routerLink="/seller-home"> <fa-icon [icon]="list" ></fa-icon> Product List</a></li>
         <li><a (click)="logout()"> <fa-icon [icon]="keyboard" ></fa-icon> LogOut</a></li>
         <li style="color: rgb(20, 97, 108);" > <fa-icon [icon]="person" ></fa-icon> {{sellerName | titlecase}}</li>
