@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginDataType, SignUpDataType } from '../data-type';
+import { LoginDataType, SignUpDataType, product, cart } from '../data-type';
 import { UserService } from '../services/user.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { parse } from '@fortawesome/fontawesome-svg-core';
+import { ProductService } from '../services/product.service';
 
 @Component({
   selector: 'app-user-auth',
@@ -15,7 +17,7 @@ export class UserAuthComponent implements OnInit {
   authError: string = '';
 
 
-  constructor(private user: UserService, private formBuilder: FormBuilder) {
+  constructor(private user: UserService, private formBuilder: FormBuilder, private product: ProductService) {
     this.userSignUp = this.formBuilder.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -39,9 +41,12 @@ export class UserAuthComponent implements OnInit {
   Login(data: LoginDataType) {
     this.authError = "";
     this.user.userLogin(data);
-    this.user.isLoginError.subscribe((error) => {
-      if (error) {
+    this.user.invalidUserAuth.subscribe((result) => {
+      if (result) {
         this.authError = "Please enter valid details";
+      }
+      else{
+        this.localCartToRemoteCart();
       }
     });
   }
@@ -51,5 +56,45 @@ export class UserAuthComponent implements OnInit {
 
   openSignup() {
     this.showlogin = false;
+  }
+
+  localCartToRemoteCart() {
+    let user = localStorage.getItem('user');
+      let userId = user && JSON.parse(user).id;
+
+    let data = localStorage.getItem('localCart');
+    if (data) {
+      let cartDataList: product[] = JSON.parse(data);
+      
+      cartDataList.forEach((product: product, index) => {
+        let cartData: cart = {
+          ...product,
+          productId: product.id,
+          userId
+        };
+        delete cartData.id;
+        setTimeout(() => {
+
+          this.product.addToCart(cartData).subscribe((result) => {
+            if (result) {
+              console.warn("Item stored in DataBase");
+            }
+          })
+
+          if (cartDataList.length === index + 1) {
+            localStorage.removeItem('localCart');
+          }
+
+
+        }, 500);
+
+      });
+
+    }
+
+    setTimeout(() => {
+      this.product.getCartList(userId);
+    }, 1000);
+
   }
 }

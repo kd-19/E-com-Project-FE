@@ -52,6 +52,7 @@ export class HeaderComponent implements OnInit{
           let userStore=localStorage.getItem('user');
           let userData = userStore && JSON.parse(userStore);
           this.userName=userData.name;
+          this.product.getCartList(userData.id);
         }
 
         else{
@@ -78,6 +79,7 @@ export class HeaderComponent implements OnInit{
   userlogout(){
     localStorage.removeItem('user');
     this.route.navigate(['/user-auth']);
+    this.product.cartData.emit([]);
   }
 
   searchProduct(query:KeyboardEvent){

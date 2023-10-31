@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class UserService {
-  isLoginError = new EventEmitter<boolean>(false);
+  invalidUserAuth = new EventEmitter<boolean>(false);
 
   constructor(private http:HttpClient, private router:Router) {
 
@@ -27,11 +27,12 @@ export class UserService {
    userLogin(user:LoginDataType){
     this.http.get<SignUpDataType[]>(`http://localhost:3000/users?email=${user.email}&&password=${user.password}`,{observe:'response'}).subscribe((result)=>{
     if(result && result.body && result.body.length){
+      this.invalidUserAuth.emit(false);
       localStorage.setItem('user',JSON.stringify(result.body[0]));
         this.router.navigate(['/'])
     }
     else{
-      this.isLoginError.emit(true);
+      this.invalidUserAuth.emit(true);
     }  
     
     })
