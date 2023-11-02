@@ -32,7 +32,7 @@
     <ul *ngSwitchCase="'user'">
         <li><a routerLink="/"> <fa-icon [icon]="home" ></fa-icon> Home</a></li>
         <li><a (click)="userlogout()"> <fa-icon [icon]="keyboard" ></fa-icon> LogOut</a></li>
-        <li><a href="#"><fa-icon [icon]="cart" ></fa-icon> Cart({{cartItems}})</a></li>
+        <li><a [routerLink]="cartItems>0?'cart-page':null" ><fa-icon [icon]="cart" ></fa-icon> Cart({{cartItems}})</a></li>
         <li style="color: rgb(20, 97, 108);" > <fa-icon [icon]="person" ></fa-icon> {{userName | titlecase}}</li>
     </ul>
 

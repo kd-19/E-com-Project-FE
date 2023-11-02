@@ -1,0 +1,35 @@
+<div class="cart-page">
+    <h1> <fa-icon [icon]="cart"></fa-icon> Cart Page</h1>
+    <div class="row">
+        <div class="col-sm-8 details">
+            <ul *ngFor="let item of cartData">
+                <li>
+                    <img src="{{item.image}}">
+                </li>
+                <li>
+                    <span>{{item.name}}</span>
+                </li>
+                <li>
+                    <span>{{item.price | currency:'INR'}}</span>
+                </li>
+                <li>
+                    <span>Quantity:{{item.quantity}}</span>
+                </li>
+                <button class="remove-btn" (click)="removeToCart(item.id)" >Remove to Cart <fa-icon [icon]="cart"></fa-icon></button>
+            </ul>
+        </div>
+
+        <div class="col-sm-4 summary">
+            <h3>Cart Summary </h3>
+            <ul>
+                <li><span>Amount : </span> <span>{{priceSummary.price | currency:'INR'}}</span> </li>
+                <li><span>Tax : </span> <span>{{priceSummary.tax | currency:'INR'}}</span> </li>
+                <li><span>Delivery Charges : </span> <span>{{priceSummary.delivery | currency:'INR'}}</span> </li>
+                <li><span>Discount : </span> <span>{{priceSummary.discount | currency:'INR'}}</span> </li>
+                <li style="font-weight: 600;"><span>Total : </span> <span>{{priceSummary.total | currency:'INR'}}</span>
+                </li>
+            </ul>
+            <button class="check-button col-sm-4" (click)="checkout()" > Checkout</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+.checkout-page{
+    text-align: center;
+    margin-top: 100px;
+    color: rgb(20, 97, 108);
+    
+}
+
+.checkout-page h1{
+    margin-bottom: 50px;
+}
+
+.checkout-page h3{
+    color: rgb(47, 41, 33);
+}
+
+.payment{
+    margin-left: 38%;
+    width: 25%;
+    margin-top: 70px;
+    margin-bottom: 70px;
+    padding: 30px;
+    background-color: rgba(201, 123, 35, 0.6);
+    font-weight: 500;
+    font-size: 20px;
+}

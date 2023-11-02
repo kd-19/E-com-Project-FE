@@ -1,0 +1,100 @@
+.cart-page{
+    margin-top: 50px;
+    margin-bottom: 60px;
+}
+
+.cart-page h1{
+    margin-left: 40%;
+    color: rgb(231, 169, 45);
+    border: 3px dashed brown;
+    display: inline-block;
+    border-radius: 30px;
+    padding: 5px;
+    background-color: rgba(30, 30, 42, 0.65);
+    margin-bottom: 40px;
+}
+
+.remove-btn{
+    margin-top: 30px;
+    height: 60px;
+    border: 2px solid rgb(139, 53, 16);
+    cursor: pointer;
+    font-size: 20px;
+    width: 120px;
+    border-radius: 30px;
+    position: relative;
+    background-color: rgba(140, 140, 157, 0.65);
+    color: rgb(136, 72, 19);
+    font-weight: 500;
+}
+
+.details img{
+    height: 150px;
+    width:150px
+}
+
+.details span{
+    font-weight: 500;
+}
+
+.details ul{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    list-style-type: none;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    padding-right: 5px;
+    border-bottom: 2px solid rgb(231, 169, 45);
+    border-right: 2px solid rgb(231, 169, 45);
+}
+
+.details{
+    background-color: rgba(162, 162, 175, 0.5);
+}
+
+.summary{
+    margin-top: 100px;
+    margin-bottom: 60px;
+    padding-left: 30px;
+    position:static;
+    
+}
+
+.cart-page h3{
+    margin-left: 27%;
+    color: rgb(231, 169, 45);
+    border: 3px dashed brown;
+    display: inline-block;
+    border-radius: 30px;
+    padding: 5px;
+    background-color: rgba(30, 30, 42, 0.65);
+    margin-bottom: 40px;
+}
+
+.summary ul{
+    list-style-type: none;
+    padding: 5%;
+    border: 1px solid #aaa;
+    background-color: rgba(201, 123, 35, 0.6);
+}
+
+.summary li{
+    display: flex;
+    justify-content: space-between;
+}
+
+.check-button{
+    display: block;
+    width:100%;
+    height: auto;
+    font-weight: 600;
+    font-size: 35px;
+    padding-bottom: 5px;
+    align-items: center;
+    background-color: rgba(162, 162, 175, 0.5);
+    border-radius: 30px;
+    color: rgb(150, 80, 80);
+}

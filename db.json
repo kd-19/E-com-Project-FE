@@ -415,78 +415,6 @@
       "id": 8
     },
     {
-      "name": "Urban Terrain Cycle ",
-      "price": "6969",
-      "color": "White",
-      "category": "Sports/Fitness",
-      "description": "Bycycle by Urban Terrain ",
-      "image": "https://m.media-amazon.com/images/I/612VTVrc6XL._SX522_.jpg",
-      "quantity": 1,
-      "userId": 4,
-      "productId": 5,
-      "id": 9
-    },
-    {
-      "name": "HP Laptop Z-Book 450",
-      "price": "70000",
-      "color": "Grey",
-      "category": "Electronics",
-      "description": "HP Pavilion 14",
-      "image": "https://images.hindustantimes.com/tech/img/2021/12/17/1600x900/DSC_1300_1639757802261_1639757843934.jpg",
-      "quantity": 1,
-      "userId": 4,
-      "productId": 2,
-      "id": 10
-    },
-    {
-      "name": "HP Laptop Z-Book 450",
-      "price": "70000",
-      "color": "Grey",
-      "category": "Electronics",
-      "description": "HP Pavilion 14",
-      "image": "https://images.hindustantimes.com/tech/img/2021/12/17/1600x900/DSC_1300_1639757802261_1639757843934.jpg",
-      "quantity": 1,
-      "userId": 4,
-      "productId": 2,
-      "id": 11
-    },
-    {
-      "name": "HP Laptop Z-Book 450",
-      "price": "70000",
-      "color": "Grey",
-      "category": "Electronics",
-      "description": "HP Pavilion 14",
-      "image": "https://images.hindustantimes.com/tech/img/2021/12/17/1600x900/DSC_1300_1639757802261_1639757843934.jpg",
-      "quantity": 1,
-      "userId": 4,
-      "productId": 2,
-      "id": 15
-    },
-    {
-      "name": "HP Laptop Z-Book 450",
-      "price": "70000",
-      "color": "Grey",
-      "category": "Electronics",
-      "description": "HP Pavilion 14",
-      "image": "https://images.hindustantimes.com/tech/img/2021/12/17/1600x900/DSC_1300_1639757802261_1639757843934.jpg",
-      "quantity": 1,
-      "userId": 4,
-      "productId": 2,
-      "id": 16
-    },
-    {
-      "name": "Maharaja Juicer/Mixture ",
-      "price": "5999",
-      "color": "Grey & Black",
-      "category": "Home Appliances ",
-      "description": "A combo of juicer & mixture ",
-      "image": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQ_fYBMXbQKTf6AJx02OOvSAwNoz7SK1n0rVlaZEO82IUYwz_oJdHWoNvg_lLmXUEYYnWtyTJE59qrBdtp6_JZ4mpEPsP13U3mQfEzyag0MeXL7lsAzI68f&usqp=CAE",
-      "quantity": 1,
-      "userId": 4,
-      "productId": 9,
-      "id": 17
-    },
-    {
       "name": "One Plus Smart LED TV ",
       "price": "29999",
       "color": "Glossy Black",
@@ -535,16 +463,122 @@
       "id": 26
     },
     {
-      "name": "Vivo V29e Pro Series",
-      "price": "35000",
-      "color": "Himalayan Blue",
-      "category": "Mobile",
-      "description": "Latest product by VIVO",
-      "image": "https://cdn.zeebiz.com/sites/default/files/2023/10/04/263413-vivov29series.jpg",
+      "name": "LG Washing Machine",
+      "price": "25550",
+      "color": "Gery",
+      "category": "Electronics",
+      "description": "10L washing machine by LG",
+      "image": "https://s3b.cashify.in/gpro/uploads/2022/08/27231131/Best-LG-Washing-Machines-In-India.jpg",
       "quantity": 1,
       "userId": 1,
-      "productId": 3,
-      "id": 27
+      "productId": 1,
+      "id": 28
+    },
+    {
+      "name": "HP Laptop Z-Book 450",
+      "price": "70000",
+      "color": "Grey",
+      "category": "Electronics",
+      "description": "HP Pavilion 14",
+      "image": "https://images.hindustantimes.com/tech/img/2021/12/17/1600x900/DSC_1300_1639757802261_1639757843934.jpg",
+      "quantity": 3,
+      "userId": 1,
+      "productId": 2,
+      "id": 29
+    },
+    {
+      "name": "Apple iPhone14 Pro Max",
+      "price": "140000",
+      "color": "Black",
+      "category": "Mobile",
+      "description": "Latest iPhone from Apple",
+      "image": "https://forums.macrumors.com/attachments/20221010_172608617_ios-jpg.2099156/",
+      "quantity": 1,
+      "userId": 1,
+      "productId": 4,
+      "id": 30
+    },
+    {
+      "name": "FIRST White Men's Running Shoes",
+      "price": "3499",
+      "color": "White",
+      "category": "Sports",
+      "description": "Stylish Sports shooes by FIRST ",
+      "image": "https://www.campusshoes.com/cdn/shop/products/FIRST_11G-787_WHT-SIL-B.ORG.jpg?v=1670326183&width=900",
+      "quantity": 9,
+      "userId": 1,
+      "productId": 6,
+      "id": 32
+    },
+    {
+      "name": "SG Economy Cricket Kit",
+      "price": "12998",
+      "color": "White & Orange",
+      "category": "Sports",
+      "description": "An Complete kit from SG ",
+      "image": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSjbO-QkfHI9fM1QEzwSl1av7Kiqv0F6vpFoL4lYQ7gAKOyJAqcQF4IGYcbWz6YAP7TiTU0PNGmAtEUSV14rg8fIDESRN6IilzvhcAIRn3H2EIX5mmUrLwk9Q&usqp=CAE",
+      "quantity": 1,
+      "userId": 1,
+      "productId": 8,
+      "id": 33
+    },
+    {
+      "name": "Maharaja Juicer/Mixture ",
+      "price": "5999",
+      "color": "Grey & Black",
+      "category": "Home Appliances ",
+      "description": "A combo of juicer & mixture ",
+      "image": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQ_fYBMXbQKTf6AJx02OOvSAwNoz7SK1n0rVlaZEO82IUYwz_oJdHWoNvg_lLmXUEYYnWtyTJE59qrBdtp6_JZ4mpEPsP13U3mQfEzyag0MeXL7lsAzI68f&usqp=CAE",
+      "quantity": 2,
+      "userId": 1,
+      "productId": 9,
+      "id": 34
+    },
+    {
+      "name": "Electric Kids Mini-Cooper Car  ",
+      "price": "21955",
+      "color": "Pink",
+      "category": "Toys/Sports",
+      "description": "A battery operated car ",
+      "image": "https://5.imimg.com/data5/SELLER/Default/2021/10/JT/RD/MI/4370338/11-carat-children-kids-electric-ride-on-mini-cooper-car-with-projector.jpg",
+      "quantity": 1,
+      "userId": 1,
+      "productId": 10,
+      "id": 35
+    },
+    {
+      "name": "LG Washing Machine",
+      "price": "25550",
+      "color": "Gery",
+      "category": "Electronics",
+      "description": "10L washing machine by LG",
+      "image": "https://s3b.cashify.in/gpro/uploads/2022/08/27231131/Best-LG-Washing-Machines-In-India.jpg",
+      "quantity": 1,
+      "productId": 1,
+      "userId": null,
+      "id": 37
+    },
+    {
+      "name": "One Plus Smart LED TV ",
+      "price": "29999",
+      "color": "Glossy Black",
+      "category": "Electronics",
+      "description": "Smart tv by OnePlus in 42 inch",
+      "image": "https://img.etimg.com/thumb/width-1200,height-900,imgsize-127256,resizemode-75,msid-101614878/top-trending-products/electronics/tv-appliances/best-43-inch-tv-immersive-entertainment-at-its-best-for-ultimate-viewing-experience.jpg",
+      "quantity": 1,
+      "userId": 4,
+      "productId": 7,
+      "id": 38
+    }
+  ],
+  "orders": [
+    {
+      "address": "123, Ram nagar, jaipur, 302013",
+      "email": "kd@order.com",
+      "contact": "0123456789",
+      "totalPrice": 196808.2,
+      "userId": 6,
+      "id": 1
     }
   ]
 }

@@ -1,0 +1,49 @@
+<div class="checkout-page">
+    <h1>Checkout Page</h1>
+
+    <div class="data" >
+
+            <form [formGroup]="orderData" class="common-form" (ngSubmit)="orderNow(orderData.value)">
+                <h3>Add Shiping Address</h3>
+                <input class="common-input" formControlName="email" placeholder="Enter Your Email">
+                <div *ngIf="orderData.get('email')?.hasError('required') && orderData.get('email')?.touched"
+                    class="error-m">
+                    Email is required.
+                </div>
+                <div *ngIf="orderData.get('email')?.hasError('email') && orderData.get('email')?.touched"
+                    class="error-m">
+                    Please enter a valid email address.
+                </div>
+
+                <input class="common-input" formControlName="address" placeholder="Enter Your Shipping Address">
+                <div *ngIf="orderData.get('address')?.hasError('required') && orderData.get('address')?.touched"
+                    class="error-m">
+                    Address is required.
+                </div>
+
+
+
+                <input class="common-input" formControlName="contact" type="text"
+                    placeholder="Enter Your Contact Number">
+                <div *ngIf="orderData.get('contact')?.hasError('required') && orderData.get('contact')?.touched"
+                    class="error-m">
+                    Contact number is required.
+                </div>
+                <div *ngIf="orderData.get('contact')?.hasError('pattern') && orderData.get('contact')?.touched"
+                    class="error-m">
+                    Contact no. must be 10 digits long.
+                </div>
+
+                <button class="common-button" type="submit">Order Now</button>
+            </form>
+
+
+        <div class="payment">
+                <p>Total Amount : {{totalPrice | currency:'INR'}}</p>
+                <p>Payment Method : <b>Cash On Delivery (COD)</b></p>
+        </div>
+
+    </div>
+    
+
+</div>
