@@ -69,10 +69,10 @@ export class UserAuthComponent implements OnInit {
       cartDataList.forEach((product: product, index) => {
         let cartData: cart = {
           ...product,
-          productId: product.id,
+          productId: product._id,
           userId
         };
-        delete cartData.id;
+        delete cartData._id;
         setTimeout(() => {
 
           this.product.addToCart(cartData).subscribe((result) => {

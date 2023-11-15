@@ -15,11 +15,12 @@ export class HomeComponent implements OnInit{
 
   popularProducts:undefined | product[];
   trendyProducts: undefined | product[];
+  limit=3;
 
   constructor(private product:ProductService){}
 
   ngOnInit(): void {
-    this.product.popularProducts().subscribe((data)=>{
+    this.product.popularProducts(this.limit).subscribe((data)=>{
       this.popularProducts=data;
     });
 

@@ -17,9 +17,9 @@ export interface product{
     color:string,
     description:string,
     image:string,
-    id:number,
+    _id:string,
     quantity:undefined | number,
-    productId:undefined | number
+    productId:undefined | string
 }
 
 
@@ -30,10 +30,10 @@ export interface cart{
     color:string,
     description:string,
     image:string,
-    id:number |undefined,
+    _id:string |undefined,
     quantity:undefined | number,
-    userId:number,
-    productId:number
+    userId:string,
+    productId:string
 }
 
 export interface priceSummary{
@@ -49,5 +49,5 @@ export interface order{
     address:string,
     contact:string,
     totalPrice:number,
-    userId:number
+    userId:string
 }

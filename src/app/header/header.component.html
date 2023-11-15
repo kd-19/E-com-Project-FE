@@ -9,7 +9,7 @@
 
         <ul class="suggested-result" *ngIf="searchResult" >
             <li *ngFor="let item of searchResult"> 
-                   <a (mousedown)="redirectToDetails(item.id)">{{item.name}}</a>
+                   <a (mousedown)="redirectToDetails(item._id)">{{item.name}}</a>
             </li>
         </ul>
     </div>

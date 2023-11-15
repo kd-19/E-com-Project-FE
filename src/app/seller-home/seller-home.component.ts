@@ -23,7 +23,7 @@ export class SellerHomeComponent implements OnInit{
     
   }
 
-  onDeleteClick(id:number): void {
+  onDeleteClick(id:string): void {
     this.product.deleteProduct(id).subscribe((result)=>{
       if(result){
         this.productMessage="Product Deleted";

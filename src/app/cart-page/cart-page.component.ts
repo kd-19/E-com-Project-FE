@@ -30,9 +30,9 @@ export class CartPageComponent implements OnInit {
     this.router.navigate(['/checkout'])
   }
 
-  removeToCart(cartId:number|undefined){
+  removeToCart(cartId:string|undefined){
     let user = localStorage.getItem('user');
-      let userId = user && JSON.parse(user).id;
+      let userId = user && JSON.parse(user).user._id;
       cartId && this.cartData && this.product.removeToCart(cartId).subscribe((result)=>{
         if(result){
           this.product.getCartList(userId);

@@ -16,7 +16,7 @@ export class SellerService {
   constructor(private http: HttpClient, private router:Router) { }
 
   userSignUp(data: SignUpDataType) {
-    this.http.post('http://localhost:3000/seller', data, { observe: 'response' }).subscribe((result) => {
+    this.http.post('http://localhost:3000/seller/signup', data, { observe: 'response' }).subscribe((result) => {
       this.isSellerLoggedIn.next(true);
       localStorage.setItem('seller',JSON.stringify(result.body));
       this.router.navigate(['seller-home']);
@@ -31,9 +31,10 @@ export class SellerService {
   }
 
   userLogin(data: LoginDataType){
-    this.http.get<SignUpDataType[]>( `http://localhost:3000/seller?email=${data.email}&password=${data.password}`,
+    const loginData = {email:data.email, password:data.password};
+    this.http.post(`http://localhost:3000/seller/login`,loginData,
     { observe: 'response' }).subscribe((result) => {
-      if(result && result.body && result.body.length){
+      if(result && result.body){
         localStorage.setItem('seller',JSON.stringify(result.body));
         this.router.navigate(['seller-home']);
       }
@@ -44,3 +45,6 @@ export class SellerService {
     console.warn(data);
   }
 }
+
+
+// ?email=${data.email}&password=${data.password}

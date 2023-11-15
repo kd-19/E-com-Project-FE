@@ -14,7 +14,7 @@ export class UserService {
    }
 
    userSignUp(user:SignUpDataType){
-    this.http.post('http://localhost:3000/users', user, {observe:'response'})
+    this.http.post('http://localhost:3000/users/signup', user, {observe:'response'})
     .subscribe((result)=>{
       console.warn(result);
       if(result){
@@ -25,10 +25,13 @@ export class UserService {
    }
 
    userLogin(user:LoginDataType){
-    this.http.get<SignUpDataType[]>(`http://localhost:3000/users?email=${user.email}&&password=${user.password}`,{observe:'response'}).subscribe((result)=>{
-    if(result && result.body && result.body.length){
+    const loginData = {email:user.email, password:user.password};
+    this.http.post('http://localhost:3000/users/login', loginData ,{observe:'response'}).subscribe((result)=>{
+      console.log(result);
+    if(result && result.body ){
+      
       this.invalidUserAuth.emit(false);
-      localStorage.setItem('user',JSON.stringify(result.body[0]));
+      localStorage.setItem('user',JSON.stringify(result.body));
         this.router.navigate(['/'])
     }
     else{
@@ -44,3 +47,5 @@ export class UserService {
     }
    }
 }
+
+// ?email=${user.email}&&password=${user.password}

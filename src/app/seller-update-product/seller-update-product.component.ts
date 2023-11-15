@@ -25,7 +25,7 @@ export class SellerUpdateProductComponent implements OnInit{
 
     UpdateProduct(data:product){
       if(this.productData){
-        data.id=this.productData.id;
+        data._id=this.productData._id;
       }
       this.product.updateProduct(data).subscribe((result)=>{
         if(result){

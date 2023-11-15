@@ -5,6 +5,7 @@
 
             <form [formGroup]="orderData" class="common-form" (ngSubmit)="orderNow(orderData.value)">
                 <h3>Add Shiping Address</h3>
+                
                 <input class="common-input" formControlName="email" placeholder="Enter Your Email">
                 <div *ngIf="orderData.get('email')?.hasError('required') && orderData.get('email')?.touched"
                     class="error-m">
@@ -34,7 +35,8 @@
                     Contact no. must be 10 digits long.
                 </div>
 
-                <button class="common-button" type="submit">Order Now</button>
+                <button class="common-button" type="submit" [disabled]="orderData.invalid">Order Now</button>
+                <p style="color: red;"> {{orderMessage}}</p>
             </form>
 
 

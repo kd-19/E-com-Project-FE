@@ -12,6 +12,8 @@ export class CheckoutComponent implements OnInit {
   orderData: FormGroup;
   totalPrice: number | undefined;
 
+  orderMessage:undefined|string = '';
+
   constructor(private product: ProductService, private formBuilder: FormBuilder) {
     this.orderData = this.formBuilder.group({
       address: ['', [Validators.required]],
@@ -37,7 +39,7 @@ export class CheckoutComponent implements OnInit {
 
   orderNow(data: order) {
     let user = localStorage.getItem('user');
-    let userId = user && JSON.parse(user).id;
+    let userId = user && JSON.parse(user).user._id;
 
     if (this.totalPrice) {
       let orderData: order = {
@@ -47,7 +49,7 @@ export class CheckoutComponent implements OnInit {
       }
       this.product.orderNow(orderData).subscribe((result)=>{
         if(result){
-          console.warn(result);
+            this.orderMessage="Order Completed";
         }
       })
     }
