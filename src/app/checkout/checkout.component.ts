@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ProductService } from '../services/product.service';
 import { order } from '../data-type';
+import { TokenService } from '../services/token.service';
 
 @Component({
   selector: 'app-checkout',
@@ -14,7 +15,7 @@ export class CheckoutComponent implements OnInit {
 
   orderMessage:undefined|string = '';
 
-  constructor(private product: ProductService, private formBuilder: FormBuilder) {
+  constructor(private product: ProductService, private formBuilder: FormBuilder, private tokenService:TokenService) {
     this.orderData = this.formBuilder.group({
       address: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
@@ -38,8 +39,10 @@ export class CheckoutComponent implements OnInit {
   }
 
   orderNow(data: order) {
-    let user = localStorage.getItem('user');
-    let userId = user && JSON.parse(user).user._id;
+    // let user = localStorage.getItem('user');
+    let userData = this.tokenService.decodeToken();
+    console.log(userData);
+    let userId = userData && JSON.parse(userData)._id;
 
     if (this.totalPrice) {
       let orderData: order = {

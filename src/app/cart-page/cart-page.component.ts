@@ -3,6 +3,7 @@ import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
 import { product, cart, priceSummary } from '../data-type';
 import { ProductService } from '../services/product.service';
 import { Router } from '@angular/router';
+import { TokenService } from '../services/token.service';
 
 @Component({
   selector: 'app-cart-page',
@@ -20,7 +21,7 @@ export class CartPageComponent implements OnInit {
     total:0
   }
 
-  constructor(private product: ProductService, private router:Router) { }
+  constructor(private product: ProductService, private router:Router,private tokenService:TokenService) { }
 
   ngOnInit(): void {
     this.reloadCart();
@@ -31,8 +32,10 @@ export class CartPageComponent implements OnInit {
   }
 
   removeToCart(cartId:string|undefined){
-    let user = localStorage.getItem('user');
-      let userId = user && JSON.parse(user).user._id;
+    // let user = localStorage.getItem('user');
+    let user = this.tokenService.decodeToken();
+      console.log(user);
+      let userId = user && JSON.parse(user)._id;
       cartId && this.cartData && this.product.removeToCart(cartId).subscribe((result)=>{
         if(result){
           this.product.getCartList(userId);

@@ -25,9 +25,10 @@
                 <div class="product-option">
                     <button *ngIf="!removeCart" class="btn" (click)="AddToCart()"><fa-icon [icon]="cart"  ></fa-icon> Add to cart</button>
                     <button *ngIf="removeCart" class="btn" (click)="RemoveToCart(productData._id)"><fa-icon [icon]="cart"  ></fa-icon> Remove to cart</button>
-                    <button class="btn"><fa-icon [icon]="bag" ></fa-icon> Buy Now</button>
+                    <button class="btn" (click)="BuyNow()"><fa-icon [icon]="bag" ></fa-icon> Buy Now</button>
                 </div>
-                
+
+                <p class="lm">{{lgoinMessage}}</p>
                 
             </div>
     </div>

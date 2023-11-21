@@ -10,6 +10,7 @@ import { faList } from '@fortawesome/free-solid-svg-icons';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { ProductService } from '../services/product.service';
 import { product } from '../data-type';
+import { TokenService } from '../services/token.service';
 
 
 @Component({
@@ -31,26 +32,30 @@ export class HeaderComponent implements OnInit{
   userName:string='';
   cartItems=0;
 
-  
+  // && val.url.includes('seller')
 
-  constructor(private route:Router, private product:ProductService){}
+  constructor(private route:Router, private product:ProductService,private tokenService:TokenService){}
 
   ngOnInit():void{
     this.route.events.subscribe((val:any)=>{
       if(val.url){
-        if(localStorage.getItem('seller') && val.url.includes('seller')){
+        if(localStorage.getItem('token') && val.url.includes('seller')){
           this.menuType="seller";
-          if(localStorage.getItem('seller')){
-            let sellerStore=localStorage.getItem('seller');
-            let sellerData = sellerStore && JSON.parse(sellerStore);
-            this.sellerName=sellerData.name;
-          }
+            // let sellerStore=localStorage.getItem('token');
+            // let sellerData = sellerStore && JSON.parse(sellerStore);
+            // this.sellerName=sellerData.name;
+
+            let SellerData = this.tokenService.decodeToken();
+            this.sellerName=SellerData.name;
         }
 
-        else if(localStorage.getItem('user')){
+        else if(localStorage.getItem('token') ){
+          //const token=localStorage.getItem('token');
           this.menuType="user";
-          let userStore=localStorage.getItem('user');
-          let userData = userStore && JSON.parse(userStore);
+          //console.log("Token is: ",token)
+          //let userStore=localStorage.getItem('token');
+          //let userData = userStore && JSON.parse(userStore);
+          let userData = this.tokenService.decodeToken();
           this.userName=userData.name;
           this.product.getCartList(userData.id);
         }
@@ -72,12 +77,12 @@ export class HeaderComponent implements OnInit{
   }
 
   logout(){
-    localStorage.removeItem('seller');
+    localStorage.removeItem('token');
     this.route.navigate(['/']);
   }
 
   userlogout(){
-    localStorage.removeItem('user');
+    localStorage.removeItem('token');
     this.route.navigate(['/user-auth']);
     this.product.cartData.emit([]);
   }
