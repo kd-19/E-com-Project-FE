@@ -1,63 +1,144 @@
+<div *ngIf="!showLogin" class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8 bg-gray-700">
+  <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+    <div class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-blue-300">
+      <fa-icon [icon]="cart"> </fa-icon> E-MART.com
+    </div>
+    <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-white">Sign in to your account</h2>
+  </div>
 
-<div class="seller-auth">
-    <div *ngIf="!showLogin" class="signup">
-      <h1>Seller Sign-Up</h1>
-      <form [formGroup]="sellerSignUp" class="common-form" (ngSubmit)="signUp(sellerSignUp.value)">
-        <input class="common-input" formControlName="name" placeholder="Enter Your Name">
-        <div *ngIf="sellerSignUp.get('name')?.hasError('required') && sellerSignUp.get('name')?.touched" class="error-m">
+  <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+    <form [formGroup]="sellerSignUp" (ngSubmit)="signUp(sellerSignUp.value)" class="space-y-6" action="#" method="POST">
+      <div>
+        <label for="email" class="block text-sm font-medium leading-6 text-white">Name</label>
+        <div class="mt-2">
+          <input id="email" formControlName="name" type="text" autocomplete="name" required
+            placeholder="Enter Your Name"
+            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 px-2 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+        </div>
+        <div *ngIf="sellerSignUp.get('name')?.hasError('required') && sellerSignUp.get('name')?.touched"
+          class="text-red-600 font-medium mt-1.5 ml-1">
           Name is required.
         </div>
-        
-        <input class="common-input" formControlName="email" placeholder="Enter Your Email">
-        <div *ngIf="sellerSignUp.get('email')?.hasError('required') && sellerSignUp.get('email')?.touched" class="error-m">
+
+      </div>
+
+      <div>
+        <label for="email" class="block text-sm font-medium leading-6 text-white">Email address</label>
+        <div class="mt-2">
+          <input id="email" formControlName="email" type="email" autocomplete="email" required
+            placeholder="Enter Your Email"
+            class="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+        </div>
+        <div *ngIf="sellerSignUp.get('email')?.hasError('required') && sellerSignUp.get('email')?.touched"
+          class="text-red-600 font-medium mt-1.5 ml-1">
           Email is required.
         </div>
-        <div *ngIf="sellerSignUp.get('email')?.hasError('email') && sellerSignUp.get('email')?.touched" class="error-m">
+        <div *ngIf="sellerSignUp.get('email')?.hasError('email') && sellerSignUp.get('email')?.touched"
+          class="text-red-600 font-medium mt-1.5 ml-1">
           Please enter a valid email address.
         </div>
-        
-        <input class="common-input" formControlName="password" type="password" placeholder="Enter Your Password">
-        <div *ngIf="sellerSignUp.get('password')?.hasError('required') && sellerSignUp.get('password')?.touched" class="error-m">
+      </div>
+
+
+      <div>
+        <div class="flex items-center justify-between">
+          <label for="password" class="block text-sm font-medium leading-6 text-white">Password</label>
+          <div class="text-sm">
+            <a href="#" class="font-semibold text-red-300 hover:text-blue-300">Forgot password?</a>
+          </div>
+        </div>
+        <div class="mt-2">
+          <input id="password" formControlName="password" type="password" autocomplete="current-password" required
+            placeholder="Enter Your Password"
+            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 px-2 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+        </div>
+        <div *ngIf="sellerSignUp.get('password')?.hasError('required') && sellerSignUp.get('password')?.touched"
+          class="text-red-600 font-medium mt-1.5 ml-1">
           Password is required.
         </div>
-        <div *ngIf="sellerSignUp.get('password')?.hasError('minlength') && sellerSignUp.get('password')?.touched" class="error-m">
+        <div *ngIf="sellerSignUp.get('password')?.hasError('minlength') && sellerSignUp.get('password')?.touched"
+          class="text-red-600 font-medium mt-1.5 ml-1">
           Password must be at least 6 characters long.
         </div>
-        
-        <button class="common-button" type="submit">Sign-Up</button>
-        <a class="auth-toggle-link" (click)="openLogin()">Already have an account? Click to Login</a>
-      </form>
-    </div>
+      </div>
+
+      <div>
+        <button type="submit"
+          class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          [disabled]="sellerSignUp.invalid">Sign in</button>
+      </div>
+    </form>
+
+    <p class="mt-10 text-center text-sm text-white">
+      Already have an account?
+      <a (click)="openLogin()" class="font-semibold leading-6 text-red-300 hover:text-blue-300 cursor-pointer"> Click to
+        Login </a>
+    </p>
   </div>
-  
+</div>
 
 
-<!-- Login Page -->
 
-<div class="seller-auth">
-    <div *ngIf="showLogin" class="login">
-      <h1>Seller Login</h1>
-      <p class="error-m">{{authError}}</p>
-      <form [formGroup]="sellerLogin" class="common-form" (ngSubmit)="Login(sellerLogin.value)">
-        <input class="common-input" formControlName="email" placeholder="Enter Your Email">
-        <div *ngIf="sellerLogin.get('email')?.hasError('required') && sellerLogin.get('email')?.touched" class="error-m">
+
+<div *ngIf="showLogin" class="flex min-h-full flex-col justify-center px-6 py-14 lg:px-8 bg-gray-700">
+  <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+    <div class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-blue-300">
+      <fa-icon [icon]="cart"> </fa-icon> E-MART.com
+    </div>
+    <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-white">Log in to your account</h2>
+  </div>
+
+  <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+    <form [formGroup]="sellerLogin" (ngSubmit)="Login(sellerLogin.value)" class="space-y-6" action="#" method="POST">
+      <div>
+        <label for="email" class="block text-sm font-medium leading-6 text-white">Email address</label>
+        <div class="mt-2">
+          <input id="email" formControlName="email" type="email" placeholder="Enter Your Email" autocomplete="email"
+            required
+            class="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+        </div>
+        <div *ngIf="sellerLogin.get('email')?.hasError('required') && sellerLogin.get('email')?.touched"
+          class="text-red-600 font-medium mt-1.5 ml-1">
           Email is required.
         </div>
-        <div *ngIf="sellerLogin.get('email')?.hasError('email') && sellerLogin.get('email')?.touched" class="error-m">
+        <div *ngIf="sellerLogin.get('email')?.hasError('email') && sellerLogin.get('email')?.touched"
+          class="text-red-600 font-medium mt-1.5 ml-1">
           Please enter a valid email address.
         </div>
-        
-        <input class="common-input" formControlName="password" type="password" placeholder="Enter Your Password">
-        <div *ngIf="sellerLogin.get('password')?.hasError('required') && sellerLogin.get('password')?.touched" class="error-m">
+      </div>
+      <div>
+        <div class="flex items-center justify-between">
+          <label for="password" class="block text-sm font-medium leading-6 text-white">Password</label>
+          <div class="text-sm">
+            <a href="#" class="font-semibold text-red-300 hover:text-blue-300">Forgot password?</a>
+          </div>
+        </div>
+        <div class="mt-2">
+          <input id="password" formControlName="password" type="password" placeholder="Enter Your Password"
+            autocomplete="current-password" required
+            class="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+        </div>
+        <div *ngIf="sellerLogin.get('password')?.hasError('required') && sellerLogin.get('password')?.touched"
+          class="text-red-600 font-medium mt-1.5 ml-1">
           Password is required.
         </div>
-        <div *ngIf="sellerLogin.get('password')?.hasError('minlength') && sellerLogin.get('password')?.touched" class="error-m">
+        <div *ngIf="sellerLogin.get('password')?.hasError('minlength') && sellerLogin.get('password')?.touched"
+          class="text-red-600 font-medium mt-1.5 ml-1">
           Password must be at least 6 characters long.
         </div>
-        
-        <button class="common-button" type="submit">Login</button>
-        <a class="auth-toggle-link" (click)="openSignup()">Don't have an account? Click to Sign Up</a>
-      </form>
-    </div>
+      </div>
+
+      <div>
+        <button type="submit"
+          class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          [disabled]="sellerLogin.invalid">Sign in</button>
+      </div>
+    </form>
+
+    <p class="mt-10 text-center text-sm text-white">
+      Not a member?
+      <a (click)="openSignup()" class="font-semibold leading-6 text-red-300 hover:text-blue-300 cursor-pointer"> Create
+        a account </a>
+    </p>
   </div>
-  
+</div>

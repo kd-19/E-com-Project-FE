@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from '../services/product.service';
 import { cart, product } from '../data-type';
 import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
@@ -24,7 +24,7 @@ export class ProductDetailsComponent implements OnInit {
   removeCart = false;
   lgoinMessage:undefined|string='';
 
-  constructor(private activeRoute: ActivatedRoute, private product: ProductService, private tokenService:TokenService) { }
+  constructor(private activeRoute: ActivatedRoute, private product: ProductService, private tokenService:TokenService, private router:Router) { }
 
   ngOnInit(): void {
     let productId = this.activeRoute.snapshot.paramMap.get('productId');
@@ -94,8 +94,6 @@ export class ProductDetailsComponent implements OnInit {
         console.log("in Add to cart",user);
         // let userId = user && JSON.parse(user)._id;
         let userId = user && JSON.stringify(user._id); 
-
-        console.log("user id is :",userId);
         
         let cartData: cart = {
           ...this.productData, userId,
@@ -106,34 +104,36 @@ export class ProductDetailsComponent implements OnInit {
           if (result) {
             this.product.getCartList(userId);
             this.removeCart = true;
+            this.router.navigate([`/cart-page`]);         
           }
         });
       }
     }
   }
 
-  RemoveToCart(productId: string) {
-    // if (!localStorage.getItem('user')) {
-    //   this.product.removeItemFromCart(productId);
-    //   this.removeCart = false;
-    // }
-    // else{
-      // let user = localStorage.getItem('user');
-      let user = this.tokenService.decodeToken();
-      console.log("in remove to cart option",user);
-      let userId = user && JSON.stringify(user._id);
-      console.log("Data Removed Succesfully");
-      this.cartData && this.product.removeToCart(this.cartData?._id).subscribe((result)=>{
-        if(result){
-          this.product.getCartList(userId);
-          this.removeCart=false;
-        }
-      });
+  RemoveToCart(productId: string|undefined) {
+    // // if (!localStorage.getItem('user')) {
+    // //   this.product.removeItemFromCart(productId);
+    // //   this.removeCart = false;
+    // // }
+    // // else{
+    //   // let user = localStorage.getItem('user');
+    //   let user = this.tokenService.decodeToken();
+    //   let userId = user && JSON.stringify(user._id);
+    //   console.log("Data Removed Succesfully");
+      
+    //   // this.router.navigate([`/details/${productId}`]);
+    //   productId && this.cartData && this.product.removeToCart(productId).subscribe((result)=>{
+    //     if(result){
+    //       this.product.getCartList(userId);
+    //       this.removeCart=false;
+    //     }
+    //   });
     }
   //}
 
     BuyNow(){
-      if (!localStorage.getItem('user')) {
+      if (!localStorage.getItem('token')) {
         this.lgoinMessage='Please login Buy Now option';
       
         setTimeout(() => {
@@ -145,4 +145,4 @@ export class ProductDetailsComponent implements OnInit {
 
 }
 
-
+// this.cartData?._id

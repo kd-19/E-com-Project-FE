@@ -1,4 +1,4 @@
-.carousel{
+/* .carousel{
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -6,7 +6,6 @@
 }
 
 .product-header-img{
-    /* width: 500px; */
     object-fit: contain;
     height: 500px;
     margin-top: 50px;
@@ -20,11 +19,8 @@
 
 .product-list-wrapper{
     margin-top: 100px;
-    /* background-color: rgba(250,235,215,0.5); */
     margin-bottom: 50px;
     padding-bottom: 30px;
-    /* border-radius: 30px; */
-    
 }
 
 .product-item{
@@ -79,4 +75,4 @@
     color: rgb(26, 17, 6);
     font-weight: 400;
     
-} 
+}  */

@@ -1,38 +1,40 @@
-<div class="product-list">
-    <h1>Product List</h1>
-    <p style="color: red;">{{productMessage}}</p>
-
-    <table class="tab-desgin">
-        <thead>
-            <tr>
-                <th>Image</th>
-                <th>Name</th>
-                <th>Price</th>
-                <th>Color</th>
-                <th>Category</th>
-                <th>Description</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let item of productList">
+ <div class="flex flex-col min-h-screen">
+    <main class="flex-grow">
+      <div class="container mx-auto px-4 py-8">
+        <div class="overflow-x-auto">
+          <table class="min-w-full bg-gray-100 text-gray-900">
+            <thead class="bg-gray-800 text-white">
+              <tr>
+                <th class="py-2 px-4 border-b border-gray-200">Image</th>
+                <th class="py-2 px-4 border-b border-gray-200">Name</th>
+                <th class="py-2 px-4 border-b border-gray-200">Price</th>
+                <th class="py-2 px-4 border-b border-gray-200">Color</th>
+                <th class="py-2 px-4 border-b border-gray-200">Category</th>
+                <th class="py-2 px-4 border-b border-gray-200">Description</th>
+                <th class="py-2 px-4 border-b border-gray-200">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of productList" class="bg-white hover:bg-gray-100">
                 <td>
-                    <img src="{{item.image}}" alt="Product Image"/>
+                    <img class="h-36 w-48" src="{{item.image}}" alt="Product Image"/>
                 </td>
-                <td>{{item.name}}</td>
-                <td>{{item.price | currency:'INR'}}</td>
-                <td>{{item.color}}</td>
-                <td>{{item.category}}</td>
-                <td>{{item.description}}</td>
-                <td style="background-color: aliceblue; opacity: 0.7;"> <button mat-button color="warn" (click)="onDeleteClick(item._id)">
+                <td class="py-2 px-4 border-b border-gray-200">{{item.name}}</td>
+                <td class="py-2 px-4 border-b border-gray-200">{{item.price | currency:'INR'}}</td>
+                <td class="py-2 px-4 border-b border-gray-200">{{item.color}}</td>
+                <td class="py-2 px-4 border-b border-gray-200">{{item.category}}</td>
+                <td class="py-2 px-4 border-b border-gray-200">{{item.description}}</td>
+                <td class="py-2 px-4 border-b border-gray-200" style="background-color: aliceblue; opacity: 0.7;"> <button mat-button color="warn" (click)="onDeleteClick(item._id)">
                     <mat-icon>delete</mat-icon> Delete
                   </button>
                 <pre style="display: inline;">  ||  </pre>
                   <a routerLink="/seller-update-product/{{item._id}}"><fa-icon [icon]="update" > </fa-icon> Update</a>
                    </td>
             </tr>
-        </tbody>
-    </table>
-
-</div>
-
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </div>
+  

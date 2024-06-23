@@ -1,4 +1,4 @@
-.product-list{
+/* .product-list{
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -31,16 +31,16 @@ td{
     color: black;
     border-radius: 20px;
 }
-
-img{
+*/
+/* img{
     width: 200px; 
     height: 150px;
-}
+}  */
 
-tr:nth-child(even){
+/* tr:nth-child(even){
     background-color: rgba(214, 182, 132, 0.7);
 }
 
 tr:nth-child(odd){
     background-color: rgba(160, 194, 110,0.7);
-}
+} */

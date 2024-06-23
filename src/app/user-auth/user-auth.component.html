@@ -1,63 +1,144 @@
-<div class="user-auth">
-    <div *ngIf="!showlogin" class="signup">
-        <h1>User Sign-Up</h1>
-        <form [formGroup]="userSignUp" class="common-form" (ngSubmit)="signUp(userSignUp.value)">
-            <input class="common-input" formControlName="name" placeholder="Enter Your Name">
-            <div *ngIf="userSignUp.get('name')?.hasError('required') && userSignUp.get('name')?.touched"
-                class="error-m">
-                Name is required
-            </div>
-
-            <input class="common-input" formControlName="email" placeholder="Enter Your Email">
-            <div *ngIf="userSignUp.get('email')?.hasError('required') && userSignUp.get('email')?.touched"
-                class="error-m">
-                Email is required
-            </div>
-            <div *ngIf="userSignUp.get('email')?.hasError('email') && userSignUp.get('email')?.touched" class="error-m">
-                Please enter a valid email address
-            </div>
-
-            <input class="common-input" formControlName="password" type="password" placeholder="Enter Your Password">
-            <div *ngIf="userSignUp.get('password')?.hasError('required') && userSignUp.get('password')?.touched"
-                class="error-m">
-                Password is required
-            </div>
-            <div *ngIf="userSignUp.get('password')?.hasError('minlength') && userSignUp.get('password')?.touched"
-                class="error-m">
-                Password must be at least 6 characters long
-            </div>
-
-            <button class="common-button" [disabled]="userSignUp.invalid">Sign-Up</button>
-            <a class="auth-toggle-link" (click)="openLogin()">Already have an account? Click to Login</a>
-        </form>
+<div *ngIf="!showlogin" class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8 bg-gray-700">
+  <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+    <div class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-blue-300">
+      <fa-icon [icon]="cart"> </fa-icon> E-MART.com
     </div>
+    <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-white">Sign in to your account</h2>
+  </div>
+
+  <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+    <form [formGroup]="userSignUp" (ngSubmit)="signUp(userSignUp.value)" class="space-y-6" action="#" method="POST">
+      <div>
+        <label for="email" class="block text-sm font-medium leading-6 text-white">Name</label>
+        <div class="mt-2">
+          <input id="email" formControlName="name" type="text" autocomplete="name" required
+            placeholder="Enter your name"
+            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 px-2 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+        </div>
+        <div *ngIf="userSignUp.get('name')?.hasError('required') && userSignUp.get('name')?.touched"
+          class="text-red-600 font-medium mt-1.5 ml-1">
+          Name is required.
+        </div>
+
+      </div>
+
+      <div>
+        <label for="email" class="block text-sm font-medium leading-6 text-white">Email address</label>
+        <div class="mt-2">
+          <input id="email" formControlName="email" type="email" autocomplete="email" required
+            placeholder="Enter youe email"
+            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 px-2 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+        </div>
+        <div *ngIf="userSignUp.get('email')?.hasError('required') && userSignUp.get('email')?.touched"
+          class="text-red-600 font-medium mt-1.5 ml-1">
+          Email is required.
+        </div>
+        <div *ngIf="userSignUp.get('email')?.hasError('email') && userSignUp.get('email')?.touched"
+          class="text-red-600 font-medium mt-1.5 ml-1">
+          Please enter a valid email address.
+        </div>
+      </div>
+
+
+      <div>
+        <div class="flex items-center justify-between">
+          <label for="password" class="block text-sm font-medium leading-6 text-white">Password</label>
+          <div class="text-sm">
+            <a href="#" class="font-semibold text-red-300 hover:text-blue-300">Forgot password?</a>
+          </div>
+        </div>
+        <div class="mt-2">
+          <input id="password" formControlName="password" type="password" autocomplete="current-password" required
+            placeholder="Enter your password"
+            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 px-2 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+        </div>
+        <div *ngIf="userSignUp.get('password')?.hasError('required') && userSignUp.get('password')?.touched"
+          class="text-red-600 font-medium mt-1.5 ml-1">
+          Password is required.
+        </div>
+        <div *ngIf="userSignUp.get('password')?.hasError('minlength') && userSignUp.get('password')?.touched"
+          class="text-red-600 font-medium mt-1.5 ml-1">
+          Password must be at least 6 characters long.
+        </div>
+      </div>
+
+      <div>
+        <button type="submit"
+          class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          [disabled]="userSignUp.invalid">Sign in</button>
+      </div>
+    </form>
+
+    <p class="mt-10 text-center text-sm text-white">
+      Already have an account?
+      <a (click)="openLogin()" class="font-semibold leading-6 text-red-300 hover:text-blue-500 cursor-pointer"> Click to
+        Login </a>
+    </p>
+  </div>
 </div>
 
 
 
-<!-- Login Page -->
-<div class="user-auth">
-    <div *ngIf="showlogin" class="login">
-        <h1>User Login</h1>
-        <p class="error-m">{{authError}}</p>
-        <form [formGroup]="userLogin" class="common-form" (ngSubmit)="Login(userLogin.value)">
-            <input class="common-input" formControlName="email" placeholder="Enter Your Email">
-            <div *ngIf="userLogin.get('email')?.hasError('required') && userLogin.get('email')?.touched"
-                class="error-m">
-                Email is required
-            </div>
-            <div *ngIf="userLogin.get('email')?.hasError('email') && userLogin.get('email')?.touched" class="error-m">
-                Please enter a valid email address
-            </div>
-
-            <input class="common-input" formControlName="password" type="password" placeholder="Enter Your Password">
-            <div *ngIf="userLogin.get('password')?.hasError('required') && userLogin.get('password')?.touched"
-                class="error-m">
-                Password is required
-            </div>
-
-            <button class="common-button" [disabled]="userLogin.invalid">Login</button>
-            <a class="auth-toggle-link" (click)="openSignup()">Don't have an account? Click to Sign-Up</a>
-        </form>
+<div *ngIf="showlogin" class="flex min-h-full flex-col justify-center px-6 py-14 lg:px-8 bg-gray-700">
+  <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+    <div class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-blue-300">
+      <fa-icon [icon]="cart"> </fa-icon> E-MART.com
     </div>
+    <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-white">Log in to your account</h2>
+  </div>
+
+  <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+    <form [formGroup]="userLogin" (ngSubmit)="Login(userLogin.value)" class="space-y-6" action="#" method="POST">
+      <div>
+        <label for="email" class="block text-sm font-medium leading-6 text-white">Email address</label>
+        <div class="mt-2">
+          <input id="email" formControlName="email" type="email" autocomplete="email" required
+            placeholder="Enter your email"
+            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 px-2 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+        </div>
+        <div *ngIf="userLogin.get('email')?.hasError('required') && userLogin.get('email')?.touched"
+          class="text-red-600 font-medium mt-1.5 ml-1">
+          Email is required.
+        </div>
+        <div *ngIf="userLogin.get('email')?.hasError('email') && userLogin.get('email')?.touched"
+          class="text-red-600 font-medium mt-1.5 ml-1">
+          Please enter a valid email address.
+        </div>
+      </div>
+      <div>
+        <div class="flex items-center justify-between">
+          <label for="password" class="block text-sm font-medium leading-6 text-white">Password</label>
+          <div class="text-sm">
+            <a href="#" class="font-semibold text-red-300 hover:text-blue-300">Forgot password?</a>
+          </div>
+        </div>
+        <div class="mt-2">
+          <input id="password" formControlName="password" type="password" autocomplete="current-password" required
+            placeholder="Enter your password"
+            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 px-2 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+        </div>
+        <div *ngIf="userLogin.get('password')?.hasError('required') && userLogin.get('password')?.touched"
+          class="text-red-600 font-medium mt-1.5 ml-1">
+          Password is required.
+        </div>
+        <div *ngIf="userLogin.get('password')?.hasError('minlength') && userLogin.get('password')?.touched"
+          class="text-red-600 font-medium mt-1.5 ml-1">
+          Password must be at least 6 characters long.
+        </div>
+      </div>
+
+      <div>
+        <button type="submit"
+          class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          [disabled]="userLogin.invalid">Sign in</button>
+      </div>
+    </form>
+
+    <p class="mt-10 text-center text-sm text-white">
+      Not a member?
+      <a (click)="openSignup()" class="font-semibold leading-6 text-red-300 hover:text-blue-300 cursor-pointer"> Create
+        a account
+      </a>
+    </p>
+  </div>
 </div>

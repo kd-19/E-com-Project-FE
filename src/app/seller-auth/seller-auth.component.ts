@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SignUpDataType } from '../data-type';
 import { LoginDataType } from '../data-type';
+import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-seller-auth',
@@ -15,6 +16,7 @@ export class SellerAuthComponent {
   sellerLogin: FormGroup;
   showLogin=false;
   authError:string='';
+  cart=faCartPlus;
 
   constructor(private seller:SellerService, private router:Router, private formBuilder:FormBuilder) {
     this.sellerSignUp = this.formBuilder.group({

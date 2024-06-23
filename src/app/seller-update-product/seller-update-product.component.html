@@ -1,5 +1,5 @@
-<div class="update-product">
-    <h1>Update Your Product</h1>
+<div class="text-center mb-16">
+    <h1 class="mt-16 mb-10 text-gray-400 text-3xl" >Update Your Product</h1>
     <p class="message-p">{{productMessage}}</p>
     <form #updateProduct="ngForm" (ngSubmit)="UpdateProduct(updateProduct.value)" class="common-form">
         <input class="common-input" name="name" ngModel="{{productData?.name}}" type="text" placeholder="Enter Product Name">

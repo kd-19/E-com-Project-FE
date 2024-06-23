@@ -51,7 +51,7 @@ export class SellerService {
       if(result instanceof HttpResponse && result.body){
 
         // localStorage.setItem('seller',JSON.stringify(result.body));
-        this.isSellerLoggedIn.next(false);
+        // this.isSellerLoggedIn.next(true);
         const seller = result.body
         this.handleAuthentication(seller);
         this.router.navigate(['seller-home']);

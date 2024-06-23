@@ -31,8 +31,7 @@ export class HeaderComponent implements OnInit{
   searchResult:undefined | product[];
   userName:string='';
   cartItems=0;
-
-  // && val.url.includes('seller')
+  openMenu:boolean = false;
 
   constructor(private route:Router, private product:ProductService,private tokenService:TokenService){}
 
@@ -41,6 +40,7 @@ export class HeaderComponent implements OnInit{
       if(val.url){
         if(localStorage.getItem('token') && val.url.includes('seller')){
           this.menuType="seller";
+          //console.log(this.menuType);
             // let sellerStore=localStorage.getItem('token');
             // let sellerData = sellerStore && JSON.parse(sellerStore);
             // this.sellerName=sellerData.name;
@@ -49,15 +49,31 @@ export class HeaderComponent implements OnInit{
             this.sellerName=SellerData.name;
         }
 
+
+        else if (localStorage.getItem('token') && val.url === '/') {
+          // If there is a token in localStorage and the URL is '/home'
+          let userData = this.tokenService.decodeToken();
+          if (userData.role === 'seller') {
+            this.menuType = "seller";
+            this.sellerName = userData.name;
+          } else {
+            this.menuType = "user";
+            this.userName = userData.name;
+            this.product.getCartList(userData._id);
+          }
+      }
+
+
         else if(localStorage.getItem('token') ){
           //const token=localStorage.getItem('token');
           this.menuType="user";
+          // console.log(this.menuType);
           //console.log("Token is: ",token)
           //let userStore=localStorage.getItem('token');
           //let userData = userStore && JSON.parse(userStore);
           let userData = this.tokenService.decodeToken();
           this.userName=userData.name;
-          this.product.getCartList(userData.id);
+          this.product.getCartList(userData._id);
         }
 
         else{
@@ -70,7 +86,6 @@ export class HeaderComponent implements OnInit{
     if(cartData){
       this.cartItems=JSON.parse(cartData).length;
     }
-
     this.product.cartData.subscribe((item)=>{
       this.cartItems=item.length;
     })
@@ -109,6 +124,14 @@ export class HeaderComponent implements OnInit{
 
   redirectToDetails(id:string){
     this.route.navigate(['/details/'+id]);
+  }
+
+  CB(){
+    console.log("--->>",this.menuType);
+  }
+
+  openMobileMenu(){
+    this.openMenu = !this.openMenu;
   }
    
 }

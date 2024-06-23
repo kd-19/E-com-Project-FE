@@ -1,48 +1,49 @@
-<div  class="carousel">
-	<ngb-carousel *ngIf="popularProducts">
-		<ng-template ngbSlide *ngFor="let item of popularProducts">
-			<div class="picsum-img-wrapper">
-				<img class="product-header-img" routerLink="/details/{{item._id}}" src="{{item.image}}" alt="Random first slide" />
-			</div>
-			<div class="carousel-caption">
-				<h3>{{item.name}}</h3>
-				<p>{{item.price | currency:"INR"}}</p>
-				<p>{{item.description}}</p>
-			</div>
-		</ng-template>
-	</ngb-carousel>
+<div class="flex justify-center items-center py-10 min-h-3.5 bg-gray-100">
+  <div class="carousel w-full max-w-lg">
+    <ngb-carousel *ngIf="popularProducts">
+      <ng-template ngbSlide *ngFor="let item of popularProducts">
+        <div class="flex flex-col items-center">
+          <div class="picsum-img-wrapper">
+            <img routerLink="/details/{{item._id}}" src="{{item.image}}" alt="{{item.name}}"
+              class="object-cover w-full h-64 rounded-lg shadow-md" />
+          </div>
+          <div class="mt-4 text-center">
+            <h3 class="text-lg font-semibold">{{item.name}}</h3>
+            <!-- <p class="text-gray-500">{{item.price | currency:"INR"}}</p> -->
+            <p class="text-gray-600">{{item.description}}</p>
+          </div>
+        </div>
+      </ng-template>
+    </ngb-carousel>
+  </div>
 </div>
+
+
+
 <!--  -->
 <!--  -->
 <!--  -->
 
-<div class="product-list-wrapper">
-	<h1>Trendy Products</h1>
-	<div class="row">
-		<div class="col-sm-3"  *ngFor="let item of trendyProducts">
-			<div class="product-item">
-					<img src="{{item.image}}" >
-
-				<div class="product-details">
-						<h6 class="name-head">{{item.name}}</h6>
-
-						<div class="product-price">
-							<h6>Price: {{item.price | currency:'INR'}}</h6>
-						</div>
-						<div class="product-color">
-							<h6>Color: {{item.color}}</h6>
-						</div>
-				</div>
-
-				<div class="product-footer">
-					<a routerLink="/details/{{item._id}}"> <fa-icon [icon]="list" ></fa-icon> View Details</a>
-					<a routerLink="/details/{{item._id}}"><fa-icon [icon]="cart" ></fa-icon> Add to Cart</a>
-				</div>
-
-			</div>
-		
-		</div>
-
-	</div>
-
+<div class="flex-grow overflow-auto pb-10 bg-gray-300">
+  <div class="container mx-auto px-4 py-8">
+    <h1 class="text-center text-2xl font-bold mb-14">Trending Products</h1>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div *ngFor="let item of trendyProducts" class="bg-white rounded-lg shadow-md overflow-hidden">
+        <img [src]="item.image" class="w-full h-72 object-cover" alt="{{item.name}}">
+        <div class="p-4">
+          <h2 class="text-lg font-semibold mb-2 truncate">{{item.name}}</h2>
+          <p class="text-gray-700">{{item.price | currency:'INR'}}</p>
+          <p class="text-gray-700">{{item.color}}</p>
+          <div class="mt-4 flex justify-between items-center">
+            <button routerLink="/details/{{item._id}}" class="bg-sky-300 text-gray-800 px-4 py-2 rounded">
+              <fa-icon [icon]="list"></fa-icon> View Details
+            </button>
+            <button routerLink="/details/{{item._id}}" class="bg-gray-800 text-white px-4 py-2 rounded">
+              <fa-icon [icon]="cart"></fa-icon> Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

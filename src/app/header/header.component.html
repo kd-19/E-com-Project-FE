@@ -1,41 +1,86 @@
-<nav class="nav">
-    <h1>
-          
-        <a routerLink="/"><fa-icon [icon]="cart" style="color:chocolate;">  </fa-icon> E-MART.com</a> </h1>
 
-    <div *ngIf="menuType==='default' || 'user'" class="nav-search">
-        <input type="text" #searchInput   (keyup)="searchProduct($event)" (blur)="hideSearch()" placeholder="Search for products">
-        <button (click)="submitSearch(searchInput.value)" > <fa-icon [icon]="search" ></fa-icon> Search</button>
+ <nav class="bg-gray-800">
+    <div class="mx-1 max-w-full px-2 sm:px-6 lg:px-8">
+      <div class="relative flex h-16 items-center justify-between">
+        <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+          <!-- Mobile menu button-->
+          <button type="button" class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false" (click)="openMobileMenu()">
+            <span class="absolute -inset-0.5"></span>
+            <svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
 
-        <ul class="suggested-result" *ngIf="searchResult" >
-            <li *ngFor="let item of searchResult"> 
-                   <a (mousedown)="redirectToDetails(item._id)">{{item.name}}</a>
-            </li>
-        </ul>
+            <svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+          <div class="flex flex-shrink-0 items-center">
+            <a routerLink="/" class="text-blue-300 text-base font-medium" (click)="CB()"><fa-icon [icon]="cart" class="h-8 w-auto "> </fa-icon> E-MART.com</a>
+          </div>
+          <div class="hidden sm:ml-6 sm:block" [ngSwitch]="menuType">
+            <div class="flex space-x-4" *ngSwitchCase="'default'">
+              <a routerLink="/" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-base font-medium cursor-pointer" aria-current="page"> <fa-icon [icon]="home" ></fa-icon> Home</a>
+              <a routerLink="/seller" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-base font-medium cursor-pointer"><fa-icon [icon]="person" ></fa-icon> Seller</a>
+              <a routerLink="user-auth" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-base font-medium cursor-pointer"><fa-icon [icon]="keyboard" ></fa-icon> User Login/Sign-up</a>
+            </div>  
+
+            <div class="flex space-x-4" *ngSwitchCase="'seller'">
+                <a routerLink="/seller-add-product" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-base font-medium cursor-pointer" aria-current="page"> <fa-icon [icon]="plus" ></fa-icon> Add Product</a>
+                <a routerLink="/seller-home" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-base font-medium cursor-pointer"><fa-icon [icon]="list" ></fa-icon> Product List</a>
+                <a (click)="logout()" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-base font-medium cursor-pointer"><fa-icon [icon]="keyboard" ></fa-icon> LogOut</a>
+                <a class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-base font-medium cursor-pointer"><fa-icon [icon]="person" ></fa-icon> {{sellerName | titlecase}}</a>
+              </div>
+
+              <div class="flex space-x-4" *ngSwitchCase="'user'">
+                <a routerLink="/" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-base font-medium cursor-pointer" aria-current="page"> <fa-icon [icon]="home" ></fa-icon> Home</a>
+                <a (click)="userlogout()" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-base font-medium cursor-pointer"><fa-icon [icon]="keyboard" ></fa-icon> LogOut</a>
+                <a [routerLink]="cartItems>0?'cart-page':null" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-base font-medium cursor-pointer"><fa-icon [icon]="cart" ></fa-icon> Cart({{cartItems}})</a>
+                <a class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-base font-medium cursor-pointer"><fa-icon [icon]="person" ></fa-icon> {{userName | titlecase}}</a>
+              </div>
+
+          </div>
+        </div>
+        <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+  
+          <!-- Profile dropdown -->
+          <div class="relative ml-3">
+            <div>
+              <button type="button" class="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+                <span class="absolute -inset-1.5"></span>
+                <span class="sr-only">Open user menu</span>
+                <img class="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  
+    <!-- Mobile menu, show/hide based on menu state. -->
+    <div *ngIf="openMenu" class="sm:hidden" id="mobile-menu" [ngSwitch]="menuType">
+      <div class="space-y-1 px-2 pb-3 pt-2" *ngSwitchCase="'default'">
+        <a routerLink="/" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium" aria-current="page"> <fa-icon class="mr-3" [icon]="home" ></fa-icon> Home</a>
+        <a routerLink="/seller" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium"><fa-icon class="mr-3" [icon]="person" ></fa-icon> Seller</a>
+        <a routerLink="user-auth" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium"><fa-icon class="mr-3" [icon]="keyboard" ></fa-icon> User Login/Sign-up</a>
+      </div>
 
-    <div [ngSwitch]="menuType">
-    <ul *ngSwitchCase="'default'">
-        <li><a routerLink="/"> <fa-icon [icon]="home" ></fa-icon> Home</a></li>
-        <li><a routerLink="/seller"> <fa-icon [icon]="person" ></fa-icon> Seller</a></li>
-        <li><a routerLink="user-auth"><fa-icon [icon]="keyboard" ></fa-icon> User Login/Sign-up</a></li>
-        <!-- <li><a href="#"><fa-icon [icon]="cart" ></fa-icon> Cart({{cartItems}})</a></li> -->
-    </ul>
+      
+      <div class="space-y-1 px-2 pb-3 pt-2" *ngSwitchCase="'seller'">
+        <a routerLink="/seller-add-product" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium" aria-current="page"> <fa-icon class="mr-3" [icon]="plus" ></fa-icon> Add Product</a>
+        <a routerLink="/seller-home" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium"><fa-icon class="mr-3" [icon]="list" ></fa-icon> Product List</a>
+        <a (click)="logout()" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium"><fa-icon class="mr-3" [icon]="keyboard" ></fa-icon> LogOut</a>
+        <a class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium"><fa-icon class="mr-3" [icon]="person" ></fa-icon> {{sellerName | titlecase}}</a>
+      </div>
 
-    <ul *ngSwitchCase="'seller'">
-        <li><a routerLink="/seller-add-product"> <fa-icon [icon]="plus" ></fa-icon> Add Product</a></li>
-        <li><a routerLink="/seller-home"> <fa-icon [icon]="list" ></fa-icon> Product List</a></li>
-        <li><a (click)="logout()"> <fa-icon [icon]="keyboard" ></fa-icon> LogOut</a></li>
-        <li style="color: rgb(20, 97, 108);" > <fa-icon [icon]="person" ></fa-icon> {{sellerName | titlecase}}</li>
-    </ul>
-
-    <ul *ngSwitchCase="'user'">
-        <li><a routerLink="/"> <fa-icon [icon]="home" ></fa-icon> Home</a></li>
-        <li><a (click)="userlogout()"> <fa-icon [icon]="keyboard" ></fa-icon> LogOut</a></li>
-        <li><a [routerLink]="cartItems>0?'cart-page':null" ><fa-icon [icon]="cart" ></fa-icon> Cart({{cartItems}})</a></li>
-        <li style="color: rgb(20, 97, 108);" > <fa-icon [icon]="person" ></fa-icon> {{userName | titlecase}}</li>
-    </ul>
+      <div class="space-y-1 px-2 pb-3 pt-2" *ngSwitchCase="'user'">
+        <a routerLink="/" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium" aria-current="page"> <fa-icon class="mr-3" [icon]="home" ></fa-icon> Home</a>
+        <a (click)="userlogout()" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium"><fa-icon class="mr-3" [icon]="keyboard" ></fa-icon> LogOut</a>
+        <a [routerLink]="cartItems>0?'cart-page':null" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium"><fa-icon class="mr-3" [icon]="cart" ></fa-icon> Cart({{cartItems}})</a>
+        <a class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium"><fa-icon class="mr-3" [icon]="person" ></fa-icon> {{userName | titlecase}}</a>
+      </div>
 
     </div>
-</nav>
-
+  </nav>
+  

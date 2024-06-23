@@ -32,16 +32,35 @@ export class CartPageComponent implements OnInit {
   }
 
   removeToCart(cartId:string|undefined){
-    // let user = localStorage.getItem('user');
+    // let user = localStorage.getItem('user');   
     let user = this.tokenService.decodeToken();
-      console.log(user);
-      let userId = user && JSON.parse(user)._id;
-      cartId && this.cartData && this.product.removeToCart(cartId).subscribe((result)=>{
-        if(result){
-          this.product.getCartList(userId);
-          this.reloadCart();
-        }
-      });
+      let userId = user && JSON.stringify(user._id);
+      console.log("Product deleted");
+
+      if (cartId && this.cartData) {
+        this.product.removeToCart(cartId).subscribe(
+          (result) => {
+            console.log('Server response:', result);
+            if (result) {
+              // Update local cart data
+              this.cartData = (this.cartData ?? []).filter(item => item._id !== cartId);
+              
+              // Trigger UI update
+              this.reloadCart();
+            }
+          },
+          (error) => {
+            console.error('Error removing product from cart:', error);
+          }
+        );
+      }
+
+      // cartId && this.cartData && this.product.removeToCart(cartId).subscribe((result)=>{
+      //   if(result){
+      //     this.product.getCartList(userId);
+      //     this.reloadCart();
+      //   }
+      // });
   }
 
 

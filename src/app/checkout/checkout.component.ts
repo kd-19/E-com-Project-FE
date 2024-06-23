@@ -42,7 +42,7 @@ export class CheckoutComponent implements OnInit {
     // let user = localStorage.getItem('user');
     let userData = this.tokenService.decodeToken();
     console.log(userData);
-    let userId = userData && JSON.parse(userData)._id;
+    let userId = userData && JSON.stringify(userData._id);
 
     if (this.totalPrice) {
       let orderData: order = {
@@ -53,7 +53,11 @@ export class CheckoutComponent implements OnInit {
       this.product.orderNow(orderData).subscribe((result)=>{
         if(result){
             this.orderMessage="Order Completed";
-        }
+
+            setTimeout(() => {
+              this.orderMessage=undefined;
+            }, 3000);
+         }
       })
     }
   }

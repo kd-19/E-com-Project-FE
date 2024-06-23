@@ -4,6 +4,7 @@ import { UserService } from '../services/user.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { parse } from '@fortawesome/fontawesome-svg-core';
 import { ProductService } from '../services/product.service';
+import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-user-auth',
@@ -15,6 +16,7 @@ export class UserAuthComponent implements OnInit {
   userSignUp: FormGroup;
   userLogin: FormGroup;
   authError: string = '';
+  cart=faCartPlus;
 
 
   constructor(private user: UserService, private formBuilder: FormBuilder, private product: ProductService) {
